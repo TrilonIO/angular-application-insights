@@ -1,0 +1,51 @@
+{
+  "name": "ngx-application-insights",
+  "version": "0.1.0",
+  "scripts": {
+    "lint": "tslint src/**/*.ts",
+    "test": "tsc && karma start",
+    "prepublish": "tsc",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarkPieszak/angular-application-insights"
+  },
+  "author": {
+    "name": "Mark Pieszak",
+    "email": "mpieszak84@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarkPieszak/angular-application-insights/issues"
+  },
+  "main": "./dist/index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@angular/core": "^2.0.0",
+    "@angular/common": "^2.0.0",
+    "codelyzer": "^0.0.28",
+    "rxjs": "^5.0.1",
+    "tslint": "^3.15.1",
+    "typescript": "2.0.2",
+    "zone.js": "0.7.2",
+    "@types/es6-shim": "^0.31.32",
+    "@types/protractor": "^4.0.0",
+    "@types/jasmine": "^2.5.40",
+    "@types/selenium-webdriver": "^2.53.39"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "ms application insights",
+    "application insights",
+    "angular application insights",
+    "microsoft application insights",
+    "ms app insights",
+    "aspnet core app insights"
+  ]
+}
