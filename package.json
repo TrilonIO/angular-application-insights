@@ -1,5 +1,5 @@
 {
-  "name": "ngx-application-insights",
+  "name": "@markpieszak/ngx-application-insights",
   "version": "0.1.0",
   "scripts": {
     "lint": "tslint src/**/*.ts",

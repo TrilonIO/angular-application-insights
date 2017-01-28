@@ -9,7 +9,7 @@
 Install & save the library to your package.json:
 
 ~~```bash~~
-~~$ npm install ngx-application-insights --save~~
+~~$ npm install @MarkPieszak/ngx-application-insights --save~~
 ~~```~~
 
 and then add the library to your Angular Root `AppModule`:
@@ -27,6 +27,13 @@ import { ApplicationInsightsModule } from 'ngx-application-insights';
   // ... providers / etc
 })
 export class YourRootModule { }
+```
+
+## Usage:
+
+```typescript
+
+
 ```
 
 ---
