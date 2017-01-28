@@ -1,14 +1,10 @@
 # [WIP] ngx-application-insights
 
-## Installation 
+> Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
 
-> **Note:** Not on npm yet
+1/28 - npm library & usage information coming soon!
 
-~~To install this library, run:~~
-
-
-
-## Consuming Angular MS Application Insights:
+## Installation:
 
 Install & save the library to your package.json:
 
