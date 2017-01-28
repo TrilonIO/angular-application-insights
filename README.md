@@ -23,7 +23,10 @@ import { ApplicationInsightsModule } from '@MarkPieszak/ngx-application-insights
     // ... your imports
 
     // Add the Module to your imports 
-    ApplicationInsightsModule.forRoot('Your-Application-Insights-ID', '[OPTIONAL] App name for Events')
+    ApplicationInsightsModule.forRoot({ 
+      appID: 'Your-Application-Insights-ID', 
+      appName: '[OPTIONAL] Your Application name for events'
+    })
   ],
   // ... providers / etc
 })
