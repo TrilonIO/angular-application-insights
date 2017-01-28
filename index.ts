@@ -3,6 +3,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppInsightsService } from './src/app-insight.service';
+import { IAppInsightConfig, provideConfig } from './src/app-insight.config';
 
 @NgModule({
   imports: [
@@ -12,10 +13,15 @@ import { AppInsightsService } from './src/app-insight.service';
   exports: []
 })
 export class ApplicationInsightsModule {
-  static forRoot(): ModuleWithProviders {
+
+  static forRoot(config: IAppInsightConfig): ModuleWithProviders {
     return {
       ngModule: ApplicationInsightsModule,
-      providers: [AppInsightsService]
+      providers: [
+        AppInsightsService,
+        provideConfig(config)
+      ]
     };
   }
+
 }

@@ -1,35 +1,36 @@
-# [WIP] ngx-application-insights
+# [WIP] ngx-application-insights - Under development
 
 > Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
 
 1/28 - npm library & usage information coming soon!
 
-## Installation:
+## Installation: [Experimental currently]
 
 Install & save the library to your package.json:
 
-~~```bash~~
-~~$ npm install @MarkPieszak/ngx-application-insights --save~~
-~~```~~
+```bash
+$ npm i -S @MarkPieszak/ngx-application-insights
+```
 
 and then add the library to your Angular Root `AppModule`:
 
 ```typescript
 // Import the Application Insights library
-import { ApplicationInsightsModule } from 'ngx-application-insights';
+import { ApplicationInsightsModule } from '@MarkPieszak/ngx-application-insights';
 
 @NgModule({
   imports: [
     // ... your imports
 
-    ApplicationInsightsModule // <-- add it to your imports
+    // Add the Module to your imports 
+    ApplicationInsightsModule.forRoot('Your-Application-Insights-ID', '[OPTIONAL] App name for Events')
   ],
   // ... providers / etc
 })
 export class YourRootModule { }
 ```
 
-## Usage:
+## Usage: Coming soon !
 
 ```typescript
 
@@ -45,7 +46,7 @@ export class YourRootModule { }
 To generate all `*.js`, `*.js.map` and `*.d.ts` files:
 
 ```bash
-$ npm run tsc
+$ npm run build
 ```
 
 To lint all `*.ts` files:
