@@ -10,20 +10,38 @@ export class AppInsightsService {
       this.init();
   }
 
+  // On logEvent AppInsight usage:
+  // https://msdn.microsoft.com/en-us/library/dn614099.aspx
+
+  logEvent(eventName: string, eventProperties?: Object, metricProperty?: Object) {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    if (eventProperties === null) {
+    }
+
+    try {
+      (<any>window).appInsights.logEvent(eventName, eventProperties, metricProperty);
+    } catch (ex) {
+      console.warn('Angular application insights Error [logEvent]: ', ex);
+    }
+
+  }
+
+  /*
+   * Internal
+   */
   private init(): void {
     if (!this.isBrowser) {
       return;
     }
 
-    (<any>window).appInsights.start(this.appID);
-  }
-
-  public trackEvent(eventName: string, customData: any) {
-    if (!this.isBrowser) {
-      return;
+    try {
+      (<any>window).appInsights.start(this.appID);
+    } catch (ex) {
+      console.warn('Angular application insights Error [start]: ', ex);
     }
-
-    (<any>window).appInsights.trackEvent(eventName, customData);
   }
 
   private isBrowser(): boolean {

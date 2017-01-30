@@ -9,21 +9,24 @@
 Install & save the library to your package.json:
 
 ```bash
-$ npm i -S @MarkPieszak/ngx-application-insights
+$ npm i -S @markpieszak/ngx-application-insights
 ```
 
 and then add the library to your Angular Root `AppModule`:
 
 ```typescript
 // Import the Application Insights library
-import { ApplicationInsightsModule } from '@MarkPieszak/ngx-application-insights';
+import { ApplicationInsightsModule } from '@markpieszak/ngx-application-insights';
 
 @NgModule({
   imports: [
     // ... your imports
 
     // Add the Module to your imports 
-    ApplicationInsightsModule.forRoot('Your-Application-Insights-ID', '[OPTIONAL] App name for Events')
+    ApplicationInsightsModule.forRoot({
+      appID: 'Your-Application-Insights-ID', 
+      appName: '[OPTIONAL] App name for Events' 
+    })
   ],
   // ... providers / etc
 })
