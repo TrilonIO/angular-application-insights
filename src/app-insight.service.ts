@@ -1,11 +1,13 @@
 import { Injectable, Inject } from '@angular/core';
+import { AppInsights } from 'applicationinsights-js';
+import { APP_INSIGHT_ID, APP_NAME } from './app-insight.config';
 
 @Injectable()
 export class AppInsightsService {
 
   constructor(
-    @Inject('APP_INSIGHT_ID') public appID: string,
-    @Inject('APP_NAME') public appName: string
+    @Inject(APP_INSIGHT_ID) public appID: string,
+    @Inject(APP_NAME) public appName: string
     ) {
       this.init();
   }
@@ -22,9 +24,9 @@ export class AppInsightsService {
     }
 
     try {
-      (<any>window).appInsights.trackEvent(eventName, eventProperties, metricProperty);
+      AppInsights.trackEvent(eventName, eventProperties, metricProperty);
     } catch (ex) {
-      console.warn('Angular application insights Error [logEvent]: ', ex);
+      console.warn('Angular application insights Error [trackEvent]: ', ex);
     }
 
   }
@@ -97,9 +99,9 @@ export class AppInsightsService {
     }
 
     try {
-      (<any>window).appInsights.start(this.appID);
+      AppInsights.downloadAndSetup({ instrumentationKey: this.appID });
     } catch (ex) {
-      console.warn('Angular application insights Error [start]: ', ex);
+      console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
     }
   }
 

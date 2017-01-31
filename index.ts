@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { AppInsightsService } from './src/app-insight.service';
 import { IAppInsightConfig, provideConfig } from './src/app-insight.config';
 
+export * from './src/app-insight.service';
+
 @NgModule({
   imports: [
     CommonModule

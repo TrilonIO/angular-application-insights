@@ -23,6 +23,7 @@
   },
   "main": "./dist/index.js",
   "dependencies": {
+    "applicationinsights-js": "^1.0.7"
   },
   "devDependencies": {
     "@angular/core": "^2.0.0",
