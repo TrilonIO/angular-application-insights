@@ -15,12 +15,9 @@ export class AppInsightsService {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackevent
   // trackEvent(name: string, properties?: {[string]:string}, measurements?: {[string]:number})
   // Log a user action or other occurrence.
-  trackEvent(eventName: string, eventProperties?: Object, metricProperty?: Object) {
+  trackEvent(eventName: string, eventProperties?: {string: string}, metricProperty?: {string: number}) {
     if (!this.isBrowser) {
       return;
-    }
-
-    if (eventProperties === null) {
     }
 
     try {
@@ -110,7 +107,9 @@ export class AppInsightsService {
   }
 
   private notImplemented(methodName: string) {
-    return new Error('This method is not implemented in Parse5DomAdapter: ' + methodName);
+    return new Error(`
+      This method is not implemented in ApplicationInsightsService: [ ${methodName} ]
+      Please file any issues here: https://github.com/MarkPieszak/angular-application-insights/issues`);
   }
 
 }

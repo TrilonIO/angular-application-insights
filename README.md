@@ -1,4 +1,4 @@
-# [WIP] ngx-application-insights - Under development
+# [WIP] MS Azure Application Insights Angular v2+ implementation - Under development
 
 > Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
 
@@ -9,14 +9,14 @@
 Install & save the library to your package.json:
 
 ```bash
-$ npm i -S @markpieszak/ngx-application-insights
+$ npm i -S @markpieszak/ng-application-insights
 ```
 
 and then add the library to your Angular Root `AppModule`:
 
 ```typescript
 // Import the Application Insights library
-import { ApplicationInsightsModule } from '@markpieszak/ngx-application-insights';
+import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights';
 
 @NgModule({
   imports: [
