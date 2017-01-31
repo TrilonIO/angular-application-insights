@@ -1,15 +1,17 @@
 import { Injectable, Inject } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { AppInsights } from 'applicationinsights-js';
 import { APP_INSIGHT_ID, APP_NAME } from './app-insight.config';
+import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class AppInsightsService {
 
   constructor(
     @Inject(APP_INSIGHT_ID) public appID: string,
-    @Inject(APP_NAME) public appName: string
+    @Inject(APP_NAME) public appName: string,
+    public router: Router
     ) {
-      this.init();
   }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackevent
@@ -28,25 +30,55 @@ export class AppInsightsService {
 
   }
 
-  // [[ TODO ]] **
-
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview
   // trackPageView(name?: string, url?: string, properties?:{[string]:string}, measurements?: {[string]:number}, duration?: number)
   // Logs that a page or similar container was displayed to the user.
-  trackPageView() { return this.notImplemented('trackPageView'); }
+  trackPageView(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}, duration?: number) {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    try {
+      AppInsights.trackPageView(name, url, properties, measurements, duration);
+    } catch (ex) {
+      console.warn('Angular application insights Error [trackPageView]: ', ex);
+    }
+  }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#starttrackpage
   // startTrackPage(name?: string)
   // Starts the timer for tracking a page view. Use this instead of trackPageView if you want to control when the 
   // page view timer starts and stops, but don't want to calculate the duration yourself. This method doesn't send any 
   // telemetry. Call stopTrackPage to log the end of the page view and send the event.
-  startTrackPage(name?: string) { return this.notImplemented('startTrackPage'); }
+  startTrackPage(name?: string) {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    try {
+      AppInsights.startTrackPage(name);
+    } catch (ex) {
+      console.warn('Angular application insights Error [startTrackPage]: ', ex);
+    }
+  }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#stoptrackpage
   // stopTrackPage(name?: string, url?: string, properties?: Object, measurements?: Object)
   // Stops the timer that was started by calling startTrackPage and sends the page view telemetry with the 
   // specified properties and measurements. The duration of the page view will be the time between calling startTrackPage and stopTrackPage.
-  stopTrackPage() { return this.notImplemented('stopTrackPage'); }
+  stopTrackPage(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}) {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    try {
+      AppInsights.stopTrackPage(name, url, properties, measurements);
+    } catch (ex) {
+      console.warn('Angular application insights Error [stopTrackPage]: ', ex);
+    }
+  }
+
+  // [[ TODO ]] **
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackmetric
   // trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: {[string]:string})
@@ -86,17 +118,23 @@ export class AppInsightsService {
   // Clears the authenticated user id and the account id from the user context, and clears the associated cookie.
   clearAuthenticatedUserContext() { return this.notImplemented('clearAuthenticatedUserContext'); }
 
-
-  /*
-   * Internal
-   */
-  private init(): void {
+  public init(): void {
     if (!this.isBrowser) {
       return;
     }
 
     try {
       AppInsights.downloadAndSetup({ instrumentationKey: this.appID });
+
+      this.router.events.filter(event => event instanceof NavigationStart)
+      .subscribe((event: NavigationStart) => {
+        this.startTrackPage(event.url);
+      });
+
+      this.router.events.filter(event => event instanceof NavigationEnd)
+      .subscribe((event: NavigationEnd) => {
+        this.stopTrackPage(event.url);
+      });
     } catch (ex) {
       console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
     }
