@@ -1,12 +1,12 @@
-# [WIP] MS Azure Application Insights Angular v2+ implementation - Under development
+# [WIP] MS Azure Application Insights Angular v2+ implementation
 
 > Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
 
-1/28 - npm library & usage information coming soon!
-
-## Installation: [Experimental currently]
+## Installation:
 
 Install & save the library to your package.json:
+
+Latest version: **1.0.0-rc0**
 
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
@@ -33,18 +33,45 @@ import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights'
 export class YourRootModule { }
 ```
 
-## Usage: Coming soon !
+## Usage: 
+
+Through out your application you can now use the AppInsightsService class to fire off AppInsights functionality.
 
 ```typescript
+export class ShoppingCartComponent {
+  public cart: [];
+  constructor(private appInsights: AppInsightsService) {}
 
+  saveCart(user) {
+    // MOCK Example of sending a trackEvent()
+    // Saving some sample user & cart product data
+    this.appInsights.trackEvent('ShoppingCart Saved', { user, cart });
+  }
+}
+```
 
+## API:
+
+You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
+
+```ts
+AppInsightsService.trackPageView()
+AppInsightsService.startTrackPage()
+AppInsightsService.stopTrackPage()
+AppInsightsService.trackEvent()
+AppInsightsService.trackMetric()
+AppInsightsService.trackException()
+AppInsightsService.trackTrace()
+AppInsightsService.trackDependency()
+AppInsightsService.flush()
+AppInsightsService.setAuthenticatedUserContext()
 ```
 
 ---
 
 # Want to Contribute?
 
-## ngx-Application-Insights Development
+## ng-Application-Insights Development
 
 To generate all `*.js`, `*.js.map` and `*.d.ts` files:
 
