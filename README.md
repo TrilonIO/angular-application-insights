@@ -24,8 +24,7 @@ import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights'
 
     // Add the Module to your imports 
     ApplicationInsightsModule.forRoot({
-      appID: 'Your-Application-Insights-ID', 
-      appName: '[OPTIONAL] App name for Events'
+      instrumentationKey: 'Your-Application-Insights-instrumentationKey'
     })
   ],
   // ... providers / etc
@@ -55,10 +54,12 @@ export class ShoppingCartComponent {
 You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
 
 ```ts
+AppInsightsService.trackEvent()
+AppInsightsService.startTrackEvent()
+AppInsightsService.stopTrackEvent()
 AppInsightsService.trackPageView()
 AppInsightsService.startTrackPage()
 AppInsightsService.stopTrackPage()
-AppInsightsService.trackEvent()
 AppInsightsService.trackMetric()
 AppInsightsService.trackException()
 AppInsightsService.trackTrace()

@@ -1,9 +1,8 @@
-
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppInsightsService } from './src/app-insight.service';
-import { IAppInsightConfig, provideConfig } from './src/app-insight.config';
+import { provideConfig } from './src/app-insight.config';
 
 export * from './src/app-insight.service';
 
@@ -14,9 +13,10 @@ export * from './src/app-insight.service';
   declarations: [],
   exports: []
 })
+
 export class ApplicationInsightsModule {
 
-  static forRoot(config: IAppInsightConfig): ModuleWithProviders {
+  static forRoot(config: Microsoft.ApplicationInsights.IConfig): ModuleWithProviders {
     return {
       ngModule: ApplicationInsightsModule,
       providers: [
@@ -25,5 +25,4 @@ export class ApplicationInsightsModule {
       ]
     };
   }
-
 }
