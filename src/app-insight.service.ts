@@ -42,7 +42,6 @@ export class AppInsightsService implements IAppInsights {
   config: Microsoft.ApplicationInsights.IConfig;
   constructor(@Optional() _config: AppInsightsConfig, public router: Router) {
     this.config = _config;
-    this.init();
   }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackevent
