@@ -6,7 +6,7 @@
 
 Install & save the library to your package.json:
 
-Latest version: **1.0.0-rc0**
+Latest version: **1.0.0-rc.1**
 
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
@@ -78,12 +78,13 @@ In System.Config.map, add:
 
 ```typescript
       'applicationinsights-js': 'npm:applicationinsights-js/JavaScript/JavaScriptSDK.Module/AppInsightsModule.js'
+      '@markpieszak/ng-application-insights': 'npm:@markpieszak/ng-application-insights/dist/index.js'
 ```
 
 and in System.Config.packages, add:
 
 ```typescript
-      'applicationinsights-js': {
+      '.': {
          defaultExtension: 'js'
       }
 ```
