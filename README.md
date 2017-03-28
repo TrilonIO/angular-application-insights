@@ -15,8 +15,8 @@ $ npm i -S @markpieszak/ng-application-insights
 and then add the library to your Angular Root `AppModule`:
 
 ```typescript
-// Import the Application Insights library
-import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights';
+// Import the Application Insights module and the service provider
+import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-application-insights';
 
 @NgModule({
   imports: [
@@ -28,9 +28,18 @@ import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights'
     })
   ],
   // ... providers / etc
+  providers: [ ..., AppInsightsService ],
 })
 export class YourRootModule { }
 ```
+
+and in you app component, import the Application Insights service and inject it in the constructor:
+```typescript
+import { AppInsightsService } from './app-insights.module';
+
+  constructor(..., private appInsightsService: AppInsightsService) {...}
+```
+
 
 ## Usage: 
 
@@ -53,7 +62,7 @@ export class ShoppingCartComponent {
 
 You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
 
-```ts
+```typescript
 AppInsightsService.trackEvent()
 AppInsightsService.startTrackEvent()
 AppInsightsService.stopTrackEvent()
@@ -66,6 +75,25 @@ AppInsightsService.trackTrace()
 AppInsightsService.trackDependency()
 AppInsightsService.flush()
 AppInsightsService.setAuthenticatedUserContext()
+AppInsightsService.clearAuthenticatedUserContext()
+```
+
+## If using SystemJS:
+
+Modify systemjs.config.js...
+
+In System.Config.map, add:
+
+```typescript
+      'applicationinsights-js': 'npm:applicationinsights-js/JavaScript/JavaScriptSDK.Module/AppInsightsModule.js'
+```
+
+and in System.Config.packages, add:
+
+```typescript
+      'applicationinsights-js': {
+         defaultExtension: 'js'
+      }
 ```
 
 ---
