@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {AppInsightsConfig, AppInsightsService} from './src/app-insight.service';
+import { AppInsightsConfig, AppInsightsService } from './src/app-insight.service';
 
 export * from './src/app-insight.service';
 

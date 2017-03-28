@@ -195,20 +195,25 @@ export class AppInsightsService implements IAppInsights {
   }
 
   public init(): void {
+    if (!this.config.instrumentationKey) {
+      throw new Error(
+          'An instrumentationKey value is required in initialize AppInsightsService ');
+    }
+
     try {
-      console.warn('in AppInsights.init');
-      AppInsights.downloadAndSetup(this.config);
-      console.warn('in AppInsights.init: calling downloadAndSetup');
+    console.warn('in AppInsights.init');
+    AppInsights.downloadAndSetup(this.config);
+    console.warn('in AppInsights.init: calling downloadAndSetup');
 
-      this.router.events.filter(event => event instanceof NavigationStart)
-          .subscribe((event: NavigationStart) => {
-            this.startTrackPage(event.url);
-          });
+    this.router.events.filter(event => event instanceof NavigationStart)
+        .subscribe((event: NavigationStart) => {
+          this.startTrackPage(event.url);
+        });
 
-      this.router.events.filter(event => event instanceof NavigationEnd)
-          .subscribe((event: NavigationEnd) => {
-            this.stopTrackPage(event.url);
-          });
+    this.router.events.filter(event => event instanceof NavigationEnd)
+        .subscribe((event: NavigationEnd) => {
+          this.stopTrackPage(event.url);
+        });
     } catch (ex) {
       console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
     }
