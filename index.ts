@@ -1,29 +1,36 @@
-
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppInsightsService } from './src/app-insight.service';
-import { IAppInsightConfig, provideConfig } from './src/app-insight.config';
+import { AppInsightsConfig, AppInsightsService } from './src/app-insight.service';
 
 export * from './src/app-insight.service';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [ CommonModule ],
   declarations: [],
-  exports: []
+  exports: [],
+  providers: [ AppInsightsService ]
 })
+
 export class ApplicationInsightsModule {
 
-  static forRoot(config: IAppInsightConfig): ModuleWithProviders {
+  constructor (@Optional() @SkipSelf() parentModule: ApplicationInsightsModule,
+               private appInsightsService: AppInsightsService) {
+    if (parentModule) {
+      throw new Error(
+          'ApplicationInsightsModule is already loaded. Import it in the AppModule only');
+    }
+
+    appInsightsService.init();
+  }
+
+  static forRoot(config: AppInsightsConfig): ModuleWithProviders {
     return {
       ngModule: ApplicationInsightsModule,
       providers: [
-        AppInsightsService,
-        provideConfig(config)
+        { provide: AppInsightsConfig, useValue: config }
       ]
     };
   }
-
 }
+

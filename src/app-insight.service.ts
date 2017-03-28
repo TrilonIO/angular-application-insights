@@ -1,43 +1,80 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { AppInsights } from 'applicationinsights-js';
-import { APP_INSIGHT_ID, APP_NAME } from './app-insight.config';
 import 'rxjs/add/operator/filter';
+import IAppInsights = Microsoft.ApplicationInsights.IAppInsights;
+
+export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig {
+  instrumentationKey?: string;
+  endpointUrl?: string;
+  emitLineDelimitedJson?: boolean;
+  accountId?: string;
+  sessionRenewalMs?: number;
+  sessionExpirationMs?: number;
+  maxBatchSizeInBytes?: number;
+  maxBatchInterval?: number;
+  enableDebug?: boolean;
+  disableExceptionTracking?: boolean;
+  disableTelemetry?: boolean;
+  verboseLogging?: boolean;
+  diagnosticLogInterval?: number;
+  samplingPercentage?: number;
+  autoTrackPageVisitTime?: boolean;
+  disableAjaxTracking?: boolean;
+  overridePageViewDuration?: boolean;
+  maxAjaxCallsPerView?: number;
+  disableDataLossAnalysis?: boolean;
+  disableCorrelationHeaders?: boolean;
+  disableFlushOnBeforeUnload?: boolean;
+  enableSessionStorageBuffer?: boolean;
+  isCookieUseDisabled?: boolean;
+  cookieDomain?: string;
+  isRetryDisabled?: boolean;
+  isPerfAnalyzerEnabled?: boolean;
+  url?: string;
+  isStorageUseDisabled?: boolean;
+}
 
 @Injectable()
-export class AppInsightsService {
-
-  constructor(
-    @Inject(APP_INSIGHT_ID) public appID: string,
-    @Inject(APP_NAME) public appName: string,
-    public router: Router
-    ) {
+export class AppInsightsService implements IAppInsights {
+  context: Microsoft.ApplicationInsights.ITelemetryContext;
+  queue: Array<() => void>;
+  config: Microsoft.ApplicationInsights.IConfig;
+  constructor(@Optional() _config: AppInsightsConfig, public router: Router) {
+    this.config = _config;
   }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackevent
   // trackEvent(name: string, properties?: {[string]:string}, measurements?: {[string]:number})
   // Log a user action or other occurrence.
-  static trackEvent(eventName: string, eventProperties?: {[name: string]: string}, metricProperty?: {[name: string]: number}) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  trackEvent(eventName: string, eventProperties?: {[name: string]: string}, metricProperty?: {[name: string]: number}) {
     try {
       AppInsights.trackEvent(eventName, eventProperties, metricProperty);
     } catch (ex) {
       console.warn('Angular application insights Error [trackEvent]: ', ex);
     }
+  }
 
+  startTrackEvent(name: string): any {
+    try {
+      AppInsights.startTrackEvent(name);
+    } catch (ex) {
+      console.warn('Angular application insights Error [startTrackEvent]: ', ex);
+    }
+  }
+
+  stopTrackEvent(name: string, properties?: { [p: string]: string }, measurements?: { [p: string]: number }): any {
+    try {
+      AppInsights.stopTrackEvent(name, properties, measurements);
+    } catch (ex) {
+      console.warn('Angular application insights Error [stopTrackEvent]: ', ex);
+    }
   }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview
   // trackPageView(name?: string, url?: string, properties?:{[string]:string}, measurements?: {[string]:number}, duration?: number)
   // Logs that a page or similar container was displayed to the user.
-  static trackPageView(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}, duration?: number) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  trackPageView(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}, duration?: number) {
     try {
       AppInsights.trackPageView(name, url, properties, measurements, duration);
     } catch (ex) {
@@ -47,14 +84,10 @@ export class AppInsightsService {
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#starttrackpage
   // startTrackPage(name?: string)
-  // Starts the timer for tracking a page view. Use this instead of trackPageView if you want to control when the 
-  // page view timer starts and stops, but don't want to calculate the duration yourself. This method doesn't send any 
+  // Starts the timer for tracking a page view. Use this instead of trackPageView if you want to control when the
+  // page view timer starts and stops, but don't want to calculate the duration yourself. This method doesn't send any
   // telemetry. Call stopTrackPage to log the end of the page view and send the event.
-  static startTrackPage(name?: string) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  startTrackPage(name?: string) {
     try {
       AppInsights.startTrackPage(name);
     } catch (ex) {
@@ -64,13 +97,9 @@ export class AppInsightsService {
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#stoptrackpage
   // stopTrackPage(name?: string, url?: string, properties?: Object, measurements?: Object)
-  // Stops the timer that was started by calling startTrackPage and sends the page view telemetry with the 
+  // Stops the timer that was started by calling startTrackPage and sends the page view telemetry with the
   // specified properties and measurements. The duration of the page view will be the time between calling startTrackPage and stopTrackPage.
-  static stopTrackPage(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  stopTrackPage(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}) {
     try {
       AppInsights.stopTrackPage(name, url, properties, measurements);
     } catch (ex) {
@@ -80,13 +109,9 @@ export class AppInsightsService {
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackmetric
   // trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: {[string]:string})
-  // Log a positive numeric value that is not associated with a specific event. 
+  // Log a positive numeric value that is not associated with a specific event.
   // Typically used to send regular reports of performance indicators.
-  static trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: {[name: string]: string}) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: {[name: string]: string}) {
     try {
       AppInsights.trackMetric(name, average, sampleCount, min, max, properties);
     } catch (ex) {
@@ -97,12 +122,8 @@ export class AppInsightsService {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackexception
   // trackException(exception: Error, handledAt?: string, properties?: {[string]:string}, measurements?: {[string]:number}, severityLevel?: AI.SeverityLevel)
   // Log an exception you have caught. (Exceptions caught by the browser are also logged.)
-  static trackException(exception: Error, handledAt?: string, properties?: {[name: string]: string},
-                        measurements?: {[name: string]: number}, severityLevel?: AI.SeverityLevel) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  trackException(exception: Error, handledAt?: string, properties?: {[name: string]: string},
+                 measurements?: {[name: string]: number}, severityLevel?: AI.SeverityLevel) {
     try {
       AppInsights.trackException(exception, handledAt, properties, measurements, severityLevel);
     } catch (ex) {
@@ -113,11 +134,7 @@ export class AppInsightsService {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#tracktrace
   // trackTrace(message: string, properties?: {[string]:string}, measurements?: {[string]:number})
   // Log a diagnostic event such as entering or leaving a method.
-  static trackTrace(message: string, properties?: {[name: string]: string}) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  trackTrace(message: string, properties?: {[name: string]: string}) {
     try {
       AppInsights.trackTrace(message, properties);
     } catch (ex) {
@@ -128,11 +145,7 @@ export class AppInsightsService {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackdependency
   // trackDependency(id: string, method: string, absoluteUrl: string, pathName: string, totalTime: number, success: boolean, resultCode: number)
   // Log a dependency call (for instance: ajax)
-  static trackDependency(id: string, method: string, absoluteUrl: string, pathName: string, totalTime: number, success: boolean, resultCode: number) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  trackDependency(id: string, method: string, absoluteUrl: string, pathName: string, totalTime: number, success: boolean, resultCode: number) {
     try {
       AppInsights.trackDependency(id, method, absoluteUrl, pathName, totalTime, success, resultCode);
     } catch (ex) {
@@ -144,10 +157,7 @@ export class AppInsightsService {
   // flush()
   // Immediately send all queued telemetry. Synchronous.
   // * You don't usually have to use this, as it happens automatically on window closing.
-  static flush() {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
+  flush() {
     try {
       AppInsights.flush();
     } catch (ex) {
@@ -158,13 +168,9 @@ export class AppInsightsService {
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext
   // setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string)
-  // Set the authenticated user id and the account id in this session. Use this when you have identified a specific 
+  // Set the authenticated user id and the account id in this session. Use this when you have identified a specific
   // signed-in user. Parameters must not contain spaces or ,;=|
-  static setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string) {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string) {
     try {
       AppInsights.setAuthenticatedUserContext(authenticatedUserId, accountId);
     } catch (ex) {
@@ -175,11 +181,7 @@ export class AppInsightsService {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#clearauthenticatedusercontext
   // clearAuthenticatedUserContext ()
   // Clears the authenticated user id and the account id from the user context, and clears the associated cookie.
-  static clearAuthenticatedUserContext() {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
+  clearAuthenticatedUserContext() {
     try {
       AppInsights.clearAuthenticatedUserContext();
     } catch (ex) {
@@ -187,30 +189,31 @@ export class AppInsightsService {
     }
   }
 
-  public init(): void {
-    if (!AppInsightsService.isBrowser) {
-      return;
-    }
-
-    try {
-      AppInsights.downloadAndSetup({ instrumentationKey: this.appID });
-
-      this.router.events.filter(event => event instanceof NavigationStart)
-      .subscribe((event: NavigationStart) => {
-        AppInsightsService.startTrackPage(event.url);
-      });
-
-      this.router.events.filter(event => event instanceof NavigationEnd)
-      .subscribe((event: NavigationEnd) => {
-        AppInsightsService.stopTrackPage(event.url);
-      });
-    } catch (ex) {
-      console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
-    }
+  _onerror(message: string, url: string, lineNumber: number, columnNumber: number, error: Error): any {
+    console.warn('Angular application insights Error [_onerror]: ', message);
   }
 
-  private static isBrowser(): boolean {
-    return (typeof (<any>window) !== undefined);
+  public init(): void {
+    if (this.config.instrumentationKey) {
+      try {
+        AppInsights.downloadAndSetup(this.config);
+
+        this.router.events.filter(event => event instanceof NavigationStart)
+            .subscribe((event: NavigationStart) => {
+              this.startTrackPage(event.url);
+            });
+
+        this.router.events.filter(event => event instanceof NavigationEnd)
+            .subscribe((event: NavigationEnd) => {
+              this.stopTrackPage(event.url);
+            });
+      } catch (ex) {
+        console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
+      }
+    } else {
+        console.warn('An instrumentationKey value is required to initialize AppInsightsService ');
+    }
+
   }
 }
 

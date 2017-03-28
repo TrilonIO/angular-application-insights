@@ -6,7 +6,7 @@
 
 Install & save the library to your package.json:
 
-Latest version: **1.0.0-rc0**
+Latest version: **1.0.0-rc.1**
 
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
@@ -15,8 +15,8 @@ $ npm i -S @markpieszak/ng-application-insights
 and then add the library to your Angular Root `AppModule`:
 
 ```typescript
-// Import the Application Insights library
-import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights';
+// Import the Application Insights module and the service provider
+import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-application-insights';
 
 @NgModule({
   imports: [
@@ -24,28 +24,28 @@ import { ApplicationInsightsModule } from '@markpieszak/ng-application-insights'
 
     // Add the Module to your imports 
     ApplicationInsightsModule.forRoot({
-      appID: 'Your-Application-Insights-ID', 
-      appName: '[OPTIONAL] App name for Events'
+      instrumentationKey: 'Your-Application-Insights-instrumentationKey'
     })
   ],
   // ... providers / etc
+  providers: [ ..., AppInsightsService ],
 })
 export class YourRootModule { }
 ```
 
-## Usage: 
+## Usage:
 
 Through out your application you can now use the AppInsightsService class to fire off AppInsights functionality.
 
 ```typescript
 export class ShoppingCartComponent {
   public cart: [];
-  constructor(private appInsights: AppInsightsService) {}
+  constructor(private appInsightsService: AppInsightsService) {}
 
   saveCart(user) {
     // MOCK Example of sending a trackEvent()
     // Saving some sample user & cart product data
-    this.appInsights.trackEvent('ShoppingCart Saved', { user, cart });
+    this.appInsightsService.trackEvent('ShoppingCart Saved', { user, cart });
   }
 }
 ```
@@ -54,17 +54,39 @@ export class ShoppingCartComponent {
 
 You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
 
-```ts
+```typescript
+AppInsightsService.trackEvent()
+AppInsightsService.startTrackEvent()
+AppInsightsService.stopTrackEvent()
 AppInsightsService.trackPageView()
 AppInsightsService.startTrackPage()
 AppInsightsService.stopTrackPage()
-AppInsightsService.trackEvent()
 AppInsightsService.trackMetric()
 AppInsightsService.trackException()
 AppInsightsService.trackTrace()
 AppInsightsService.trackDependency()
 AppInsightsService.flush()
 AppInsightsService.setAuthenticatedUserContext()
+AppInsightsService.clearAuthenticatedUserContext()
+```
+
+## If using SystemJS:
+
+Modify systemjs.config.js...
+
+In System.Config.map, add:
+
+```typescript
+      'applicationinsights-js': 'npm:applicationinsights-js/JavaScript/JavaScriptSDK.Module/AppInsightsModule.js'
+      '@markpieszak/ng-application-insights': 'npm:@markpieszak/ng-application-insights/dist/index.js'
+```
+
+and in System.Config.packages, add:
+
+```typescript
+      '.': {
+         defaultExtension: 'js'
+      }
 ```
 
 ---
