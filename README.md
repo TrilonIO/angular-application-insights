@@ -33,27 +33,19 @@ import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-a
 export class YourRootModule { }
 ```
 
-and in you app component, import the Application Insights service and inject it in the constructor:
-```typescript
-import { AppInsightsService } from './app-insights.module';
-
-  constructor(..., private appInsightsService: AppInsightsService) {...}
-```
-
-
-## Usage: 
+## Usage:
 
 Through out your application you can now use the AppInsightsService class to fire off AppInsights functionality.
 
 ```typescript
 export class ShoppingCartComponent {
   public cart: [];
-  constructor(private appInsights: AppInsightsService) {}
+  constructor(private appInsightsService: AppInsightsService) {}
 
   saveCart(user) {
     // MOCK Example of sending a trackEvent()
     // Saving some sample user & cart product data
-    this.appInsights.trackEvent('ShoppingCart Saved', { user, cart });
+    this.appInsightsService.trackEvent('ShoppingCart Saved', { user, cart });
   }
 }
 ```
