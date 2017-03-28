@@ -5,7 +5,7 @@
     "lint": "tslint src/**/*.ts",
     "test": "tsc && karma start",
     "clean": "rimraf ./dist",
-    "build": "npm run clean && npm run tsc",
+    "build": "npm run clean && npm run tsc && ngc",
     "tsc": "tsc"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "url": "https://github.com/MarkPieszak/angular-application-insights/issues"
   },
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "@angular/router": "^3.4.5",
     "applicationinsights-js": "^1.0.8",
@@ -29,6 +30,8 @@
   "devDependencies": {
     "@angular/cli": "^1.0.0",
     "@angular/common": "^2.4.0",
+    "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
     "@angular/core": "^2.4.10",
     "@angular/platform-browser": "^2.4.10",
     "@types/applicationinsights-js": "^1.0.1",
