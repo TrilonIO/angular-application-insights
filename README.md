@@ -1,4 +1,4 @@
-# [WIP] MS Azure Application Insights Angular v2+ implementation
+# MS Azure Application Insights Angular v2+ implementation
 
 > Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
 
