@@ -6,7 +6,7 @@
 
 Install & save the library to your package.json:
 
-Latest version: **1.0.0-rc.1**
+Latest version: **1.0.0**
 
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
