@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.0.0 - Live!
+- Added @types/applicationinsights-js types
+
 ## rc.1
 
 - ** BREAKING ** Refactor to implement Microsoft.ApplicationInsights.IConfig and Microsoft.ApplicationInsights.IAppInsights
