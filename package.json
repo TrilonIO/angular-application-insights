@@ -24,6 +24,7 @@
   "types": "./dist/index.d.ts",
   "dependencies": {
     "@angular/router": "^3.4.5",
+    "@types/applicationinsights-js": "^1.0.2",
     "applicationinsights-js": "^1.0.8",
     "rxjs": "^5.0.3"
   },
