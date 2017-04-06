@@ -1,6 +1,6 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "lint": "tslint src/**/*.ts",
     "test": "tsc && karma start",
@@ -23,27 +23,27 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@angular/router": "^3.4.5",
+    "@angular/router": "^4.0.1",
     "@types/applicationinsights-js": "^1.0.2",
     "applicationinsights-js": "^1.0.8",
-    "rxjs": "^5.0.3"
+    "rxjs": "^5.0.3",
+    "typescript": "^2.0.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.0.0",
-    "@angular/common": "^2.4.0",
-    "@angular/compiler": "^2.4.0",
-    "@angular/compiler-cli": "^2.4.0",
-    "@angular/core": "^2.4.10",
-    "@angular/platform-browser": "^2.4.10",
+    "@angular/common": "^4.0.1",
+    "@angular/compiler": "^4.0.1",
+    "@angular/compiler-cli": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@angular/platform-browser": "^4.0.1",
     "@types/applicationinsights-js": "^1.0.1",
-    "@types/es6-shim": "^0.31.32",
     "@types/jasmine": "^2.5.40",
     "@types/protractor": "^4.0.0",
     "@types/selenium-webdriver": "^2.53.39",
     "codelyzer": "^0.0.28",
     "rimraf": "^2.5.4",
     "tslint": "^3.15.1",
-    "typescript": "^2.1",
+    "typescript": "^2.2.2",
     "zone.js": "0.8.4"
   },
   "engines": {
