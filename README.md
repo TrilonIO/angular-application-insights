@@ -6,7 +6,11 @@
 
 Install & save the library to your package.json:
 
-Latest version: **1.0.0**
+Latest version: **2.0.0**
+
+> Updated to Angular 4.0 (use version 1.x for Angular 2.x)
+
+--- 
 
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
