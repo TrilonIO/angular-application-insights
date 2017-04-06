@@ -38,6 +38,8 @@ export class YourRootModule { }
 Through out your application you can now use the AppInsightsService class to fire off AppInsights functionality.
 
 ```typescript
+import { AppInsightsService } from '@markpieszak/ng-application-insights';
+
 export class ShoppingCartComponent {
   public cart: [];
   constructor(private appInsightsService: AppInsightsService) {}
@@ -45,7 +47,7 @@ export class ShoppingCartComponent {
   saveCart(user) {
     // MOCK Example of sending a trackEvent()
     // Saving some sample user & cart product data
-    this.appInsightsService.trackEvent('ShoppingCart Saved', { user, cart });
+    this.appInsightsService.trackEvent('ShoppingCart Saved', { 'user': user.id, 'cart': cart.id });
   }
 }
 ```
@@ -77,7 +79,7 @@ Modify systemjs.config.js...
 In System.Config.map, add:
 
 ```typescript
-      'applicationinsights-js': 'npm:applicationinsights-js/JavaScript/JavaScriptSDK.Module/AppInsightsModule.js'
+      'applicationinsights-js': 'npm:applicationinsights-js/JavaScript/JavaScriptSDK.Module/AppInsightsModule.js',
       '@markpieszak/ng-application-insights': 'npm:@markpieszak/ng-application-insights/dist/index.js'
 ```
 
