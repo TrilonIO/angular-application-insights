@@ -1,7 +1,7 @@
 # CHANGELOG
 
 ## 2.0.0 - NG4
-- Updated to Angular 4.0
+- Updated to Angular 4.0 (use version 1.0.0 for Angular 2.x)
 
 ## 1.0.0 - Live!
 - Added @types/applicationinsights-js types
