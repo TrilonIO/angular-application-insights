@@ -33,13 +33,14 @@ export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig 
   isPerfAnalyzerEnabled?: boolean;
   url?: string;
   isStorageUseDisabled?: boolean;
+  overrideTrackPageMetrics?: boolean;
 }
 
 @Injectable()
 export class AppInsightsService implements IAppInsights {
   context: Microsoft.ApplicationInsights.ITelemetryContext;
   queue: Array<() => void>;
-  config: Microsoft.ApplicationInsights.IConfig;
+  config: AppInsightsConfig;
   constructor(@Optional() _config: AppInsightsConfig, public router: Router) {
     this.config = _config;
   }
@@ -198,15 +199,17 @@ export class AppInsightsService implements IAppInsights {
       try {
         AppInsights.downloadAndSetup(this.config);
 
-        this.router.events.filter(event => event instanceof NavigationStart)
-            .subscribe((event: NavigationStart) => {
-              this.startTrackPage(event.url);
-            });
+        if (!this.config.overrideTrackPageMetrics) {
+          this.router.events.filter(event => event instanceof NavigationStart)
+              .subscribe((event: NavigationStart) => {
+                this.startTrackPage(event.url);
+              });
 
-        this.router.events.filter(event => event instanceof NavigationEnd)
-            .subscribe((event: NavigationEnd) => {
-              this.stopTrackPage(event.url);
-            });
+          this.router.events.filter(event => event instanceof NavigationEnd)
+              .subscribe((event: NavigationEnd) => {
+                this.stopTrackPage(event.url);
+              });
+        }
       } catch (ex) {
         console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
       }
