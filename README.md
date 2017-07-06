@@ -56,7 +56,7 @@ export class ShoppingCartComponent {
 }
 ```
 
-## Useage with Aspnetcore-Angular2-Universal repo or JavaScriptServices ( apps w/ Server-side rendering )
+## Usage with Aspnetcore-Angular2-Universal repo or JavaScriptServices ( apps w/ Server-side rendering )
 
 > ie: https://github.com/MarkPieszak/aspnetcore-angular2-universal
 
