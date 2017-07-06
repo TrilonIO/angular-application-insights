@@ -56,6 +56,31 @@ export class ShoppingCartComponent {
 }
 ```
 
+## Useage with JavaScriptServices or Angular app with Universal (Server-side rendering)
+
+First, make sure you are only importing the library & the server within the **browser-app.module** NgModule (do not share it within a common one, as the server isn't able to use this library during it's server-renders).
+
+Secondly, make sure you are calling the `injector` to get AppInsightsService during **ngOnInit**:
+
+```typescript
+export class HomeComponent implements OnInit {
+
+    private AIService: AppInsightsService;
+    private isBrowser: boolean;
+
+    constructor(@Inject(PLATFORM_ID) private platformId, private injector: Injector) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
+    }
+
+    ngOnInit() { // <-- 
+        if (this.isBrowser) { // <-- only run if isBrowser
+            this.AIService = <AppInsightsService>this.injector.get(AppInsightsService); // <-- using the Injector, get the Service
+            this.AIService.trackEvent('Testing', { 'user': 'me' });
+        } 
+    }
+}
+```
+
 ## API:
 
 You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
