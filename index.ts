@@ -14,11 +14,13 @@ export * from './src/app-insight.service';
 
 export class ApplicationInsightsModule {
 
-  constructor (@Optional() @SkipSelf() parentModule: ApplicationInsightsModule,
-               private appInsightsService: AppInsightsService) {
+  constructor (
+    @Optional() @SkipSelf() parentModule: ApplicationInsightsModule,     
+    private appInsightsService: AppInsightsService
+  ) {
     if (parentModule) {
       throw new Error(
-          'ApplicationInsightsModule is already loaded. Import it in the AppModule only');
+        'ApplicationInsightsModule is already loaded. Import it in the AppModule only');
     }
 
     appInsightsService.init();
