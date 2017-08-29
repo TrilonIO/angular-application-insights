@@ -1,6 +1,6 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "scripts": {
     "lint": "tslint src/**/*.ts",
     "test": "tsc && karma start",
@@ -24,6 +24,7 @@
   "types": "./dist/index.d.ts",
   "dependencies": {
     "@angular/router": "^4.0.0",
+    "@markpieszak/ng-application-insights": "^2.3.0",
     "@types/applicationinsights-js": "^1.0.2",
     "applicationinsights-js": "^1.0.8",
     "rxjs": "^5.0.3",
