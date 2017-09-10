@@ -1,4 +1,4 @@
-# MS Azure Application Insights Angular v2+ implementation
+# Microsoft Azure Application Insights Angular v2+ implementation
 
 > Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
 
@@ -6,7 +6,7 @@
 
 Install & save the library to your package.json:
 
-Latest version: **2.3.1**
+Latest version: **2.3.2**
 
 > Updated to Angular 4.0 (use npm version 1.x for Angular 2.x)
 
