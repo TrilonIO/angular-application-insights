@@ -15,8 +15,8 @@ export * from './src/app-insight.service';
 export class ApplicationInsightsModule {
 
   constructor (
-    @Optional() @SkipSelf() parentModule: ApplicationInsightsModule,     
-    private appInsightsService: AppInsightsService
+    @Optional() @SkipSelf() parentModule: ApplicationInsightsModule,
+    appInsightsService: AppInsightsService
   ) {
     if (parentModule) {
       throw new Error(
