@@ -190,7 +190,7 @@ export class AppInsightsService implements IAppInsights {
     }
   }
 
-  _onerror(message: string, url: string, lineNumber: number, columnNumber: number, error: Error): any {
+  _onerror(message: string): any {
     console.warn('Angular application insights Error [_onerror]: ', message);
   }
 

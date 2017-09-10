@@ -10,7 +10,11 @@
     "outDir": "./dist",
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "files": [
     "index.ts"
