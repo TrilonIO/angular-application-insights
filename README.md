@@ -6,17 +6,15 @@
 
 Install & save the library to your package.json:
 
-Latest version: **2.3.2**
-
-> Updated to Angular 4.0 (use npm version 1.x for Angular 2.x)
-
---- 
-
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
 ```
 
-and then add the library to your Angular Root `AppModule`:
+> Updated to Angular 4.0 (use npm version 1.x for Angular 2.x versions)
+
+---
+
+Then add the library to your Angular Root `AppModule`:
 
 ```typescript
 // Import the Application Insights module and the service provider
