@@ -1,6 +1,6 @@
 # Microsoft Azure Application Insights Angular v2+ implementation
 
-> Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module. 
+> Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
 ## Installation:
 
@@ -33,6 +33,27 @@ import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-a
   providers: [ ..., AppInsightsService ],
 })
 export class YourRootModule { }
+```
+
+### What if you don't know your instrumentationKey right away?
+
+```typescript
+// Use instrumentationKeySetlater
+ApplicationInsightsModule.forRoot({
+  instrumentationKeySetlater: true // <--
+})
+
+// Then later in your Application somewhere
+constructor(
+  private appInsightsService: AppInsightsService
+) {
+  appInsightsService.config = {
+    instrumentationKey: __env.APPINSIGHTS_INSTRUMENTATIONKEY // <-- set it later sometime
+  }
+  // then make sure to initialize and start-up app insights
+  appInsightsService.init(); 
+}
+
 ```
 
 ## Usage:
