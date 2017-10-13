@@ -5,6 +5,7 @@ import 'rxjs/add/operator/filter';
 import IAppInsights = Microsoft.ApplicationInsights.IAppInsights;
 
 export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig {
+  instrumentationKeySetlater?: boolean;
   instrumentationKey?: string;
   endpointUrl?: string;
   emitLineDelimitedJson?: boolean;
@@ -41,14 +42,14 @@ export class AppInsightsService implements IAppInsights {
   context: Microsoft.ApplicationInsights.ITelemetryContext;
   queue: Array<() => void>;
   config: AppInsightsConfig;
-  constructor(@Optional() _config: AppInsightsConfig, public router: Router) {
+  constructor( @Optional() _config: AppInsightsConfig, public router: Router) {
     this.config = _config;
   }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackevent
   // trackEvent(name: string, properties?: {[string]:string}, measurements?: {[string]:number})
   // Log a user action or other occurrence.
-  trackEvent(eventName: string, eventProperties?: {[name: string]: string}, metricProperty?: {[name: string]: number}) {
+  trackEvent(eventName: string, eventProperties?: { [name: string]: string }, metricProperty?: { [name: string]: number }) {
     try {
       AppInsights.trackEvent(eventName, eventProperties, metricProperty);
     } catch (ex) {
@@ -75,7 +76,7 @@ export class AppInsightsService implements IAppInsights {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview
   // trackPageView(name?: string, url?: string, properties?:{[string]:string}, measurements?: {[string]:number}, duration?: number)
   // Logs that a page or similar container was displayed to the user.
-  trackPageView(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}, duration?: number) {
+  trackPageView(name?: string, url?: string, properties?: { [name: string]: string }, measurements?: { [name: string]: number }, duration?: number) {
     try {
       AppInsights.trackPageView(name, url, properties, measurements, duration);
     } catch (ex) {
@@ -100,7 +101,7 @@ export class AppInsightsService implements IAppInsights {
   // stopTrackPage(name?: string, url?: string, properties?: Object, measurements?: Object)
   // Stops the timer that was started by calling startTrackPage and sends the page view telemetry with the
   // specified properties and measurements. The duration of the page view will be the time between calling startTrackPage and stopTrackPage.
-  stopTrackPage(name?: string, url?: string, properties?: {[name: string]: string}, measurements?: {[name: string]: number}) {
+  stopTrackPage(name?: string, url?: string, properties?: { [name: string]: string }, measurements?: { [name: string]: number }) {
     try {
       AppInsights.stopTrackPage(name, url, properties, measurements);
     } catch (ex) {
@@ -112,7 +113,7 @@ export class AppInsightsService implements IAppInsights {
   // trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: {[string]:string})
   // Log a positive numeric value that is not associated with a specific event.
   // Typically used to send regular reports of performance indicators.
-  trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: {[name: string]: string}) {
+  trackMetric(name: string, average: number, sampleCount?: number, min?: number, max?: number, properties?: { [name: string]: string }) {
     try {
       AppInsights.trackMetric(name, average, sampleCount, min, max, properties);
     } catch (ex) {
@@ -123,8 +124,8 @@ export class AppInsightsService implements IAppInsights {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackexception
   // trackException(exception: Error, handledAt?: string, properties?: {[string]:string}, measurements?: {[string]:number}, severityLevel?: AI.SeverityLevel)
   // Log an exception you have caught. (Exceptions caught by the browser are also logged.)
-  trackException(exception: Error, handledAt?: string, properties?: {[name: string]: string},
-                 measurements?: {[name: string]: number}, severityLevel?: AI.SeverityLevel) {
+  trackException(exception: Error, handledAt?: string, properties?: { [name: string]: string },
+    measurements?: { [name: string]: number }, severityLevel?: AI.SeverityLevel) {
     try {
       AppInsights.trackException(exception, handledAt, properties, measurements, severityLevel);
     } catch (ex) {
@@ -135,7 +136,7 @@ export class AppInsightsService implements IAppInsights {
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#tracktrace
   // trackTrace(message: string, properties?: {[string]:string}, measurements?: {[string]:number})
   // Log a diagnostic event such as entering or leaving a method.
-  trackTrace(message: string, properties?: {[name: string]: string}) {
+  trackTrace(message: string, properties?: { [name: string]: string }) {
     try {
       AppInsights.trackTrace(message, properties);
     } catch (ex) {
@@ -195,28 +196,33 @@ export class AppInsightsService implements IAppInsights {
   }
 
   public init(): void {
-    if (this.config.instrumentationKey) {
-      try {
-        AppInsights.downloadAndSetup(this.config);
+    if (this.config) {
+      if (this.config.instrumentationKey) {
+        try {
+          AppInsights.downloadAndSetup(this.config);
 
-        if (!this.config.overrideTrackPageMetrics) {
-          this.router.events.filter(event => event instanceof NavigationStart)
+          if (!this.config.overrideTrackPageMetrics) {
+            this.router.events.filter(event => event instanceof NavigationStart)
               .subscribe((event: NavigationStart) => {
                 this.startTrackPage(event.url);
               });
 
-          this.router.events.filter(event => event instanceof NavigationEnd)
+            this.router.events.filter(event => event instanceof NavigationEnd)
               .subscribe((event: NavigationEnd) => {
                 this.stopTrackPage(event.url);
               });
+          }
+        } catch (ex) {
+          console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
         }
-      } catch (ex) {
-        console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
+      } else {
+        if (this.config.instrumentationKeySetlater) {
+          console.warn('An instrumentationKey value is required to initialize AppInsightsService');
+        }
       }
     } else {
-        console.warn('An instrumentationKey value is required to initialize AppInsightsService ');
+      console.warn('You need forRoot on ApplicationInsightsModule, with or instrumentationKeySetlater or instrumentationKey set at least');
     }
-
   }
 }
 
