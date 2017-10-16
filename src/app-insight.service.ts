@@ -216,7 +216,7 @@ export class AppInsightsService implements IAppInsights {
           console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
         }
       } else {
-        if (this.config.instrumentationKeySetlater) {
+        if (!this.config.instrumentationKeySetlater) { // there is no this.config.instrumentationKey AND no this.config.instrumentationKeySetlater => Add log.
           console.warn('An instrumentationKey value is required to initialize AppInsightsService');
         }
       }
