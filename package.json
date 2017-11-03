@@ -1,6 +1,6 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
     "clean": "rimraf ./dist",
