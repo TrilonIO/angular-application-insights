@@ -1,4 +1,4 @@
-# Microsoft Azure Application Insights Angular v2+ implementation
+# Microsoft Azure Application Insights Angular v2+ implementation - by [DevHelp.Online](http://www.DevHelp.Online)
 
 > Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
@@ -161,4 +161,16 @@ $ npm run lint
 
 ## License
 
-MIT © [Mark Pieszak](mailto:mpieszak84@gmail.com)
+MIT © [Mark Pieszak | DevHelp Online](mailto:hello@devhelp.online)
+
+----
+
+# DevHelp.Online - Amgular & ASP.NET - Consulting | Training | Development
+
+Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! Twitter [@DevHelpOnline](https://twitter.com/DevHelpOnline)
+
+Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+
+<p align="center">
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/768119/images/4272479/Screen_Shot_2017-10-27_at_6.58.34_PM.png" alt="DevHelp.Online - Angular ASPNET JavaScript Consulting Development and Training">
+</p>
