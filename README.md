@@ -10,7 +10,9 @@ Install & save the library to your package.json:
 $ npm i -S @markpieszak/ng-application-insights
 ```
 
-> Updated to Angular 4.0 (use npm version 1.x for Angular 2.x versions)
+> UPDATED to support Angular 5.x -> use versions ^3.0.0
+> Angular 4.x use versions 2.x
+> Angular 2.x use versions 1.x
 
 ---
 
@@ -51,7 +53,7 @@ constructor(
     instrumentationKey: __env.APPINSIGHTS_INSTRUMENTATIONKEY // <-- set it later sometime
   }
   // then make sure to initialize and start-up app insights
-  appInsightsService.init(); 
+  appInsightsService.init();
 }
 
 ```
