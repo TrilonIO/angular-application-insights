@@ -11,7 +11,9 @@ $ npm i -S @markpieszak/ng-application-insights
 ```
 
 > UPDATED to support Angular 5.x -> use versions ^3.0.0
+
 > Angular 4.x use versions 2.x
+
 > Angular 2.x use versions 1.x
 
 ---
