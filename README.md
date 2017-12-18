@@ -169,7 +169,7 @@ MIT © [Mark Pieszak | DevHelp Online](mailto:hello@devhelp.online)
 
 ----
 
-# DevHelp.Online - Amgular & ASP.NET - Consulting | Training | Development
+# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
 Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! Twitter [@DevHelpOnline](https://twitter.com/DevHelpOnline)
 
