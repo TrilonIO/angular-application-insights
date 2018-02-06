@@ -1,7 +1,8 @@
 import { Injectable, Optional } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { AppInsights } from 'applicationinsights-js';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators/filter';
+
 import IAppInsights = Microsoft.ApplicationInsights.IAppInsights;
 
 export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig {
@@ -202,12 +203,16 @@ export class AppInsightsService implements IAppInsights {
           AppInsights.downloadAndSetup(this.config);
 
           if (!this.config.overrideTrackPageMetrics) {
-            this.router.events.filter(event => event instanceof NavigationStart)
+            this.router.events.pipe(
+              filter(event => event instanceof NavigationStart)
+            )
               .subscribe((event: NavigationStart) => {
                 this.startTrackPage(event.url);
               });
 
-            this.router.events.filter(event => event instanceof NavigationEnd)
+            this.router.events.pipe(
+              filter(event => event instanceof NavigationEnd)
+            )
               .subscribe((event: NavigationEnd) => {
                 this.stopTrackPage(event.url);
               });
