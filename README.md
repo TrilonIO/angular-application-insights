@@ -10,7 +10,9 @@ Install & save the library to your package.json:
 $ npm i -S @markpieszak/ng-application-insights
 ```
 
-> UPDATED to support Angular 5.x -> use versions ^3.0.0
+> Rxjs 5.5+ (with pipeable operators) use latest (4.x)
+
+> Angular 5.x use versions 3.x
 
 > Angular 4.x use versions 2.x
 
