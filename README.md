@@ -165,6 +165,8 @@ $ npm run lint
 
 MIT © [Mark Pieszak | DevHelp Online](mailto:hello@devhelp.online)
 
+Twitter: [@MarkPieszak](https://twitter.com/MarkPieszak)
+
 ----
 
 # DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
