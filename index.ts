@@ -18,21 +18,18 @@ export class ApplicationInsightsModule {
     @Optional() @SkipSelf() parentModule: ApplicationInsightsModule,
     appInsightsService: AppInsightsService
   ) {
-    if (parentModule) {
-      throw new Error(
-        'ApplicationInsightsModule is already loaded. Import it in the AppModule only');
+    if (!parentModule) {
+        appInsightsService.init();
     }
-
-    appInsightsService.init();
   }
 
   static forRoot(config: AppInsightsConfig): ModuleWithProviders {
     return {
       ngModule: ApplicationInsightsModule,
       providers: [
-        { provide: AppInsightsConfig, useValue: config }
+        { provide: AppInsightsConfig, useValue: config },
+        AppInsightsService
       ]
     };
   }
 }
-
