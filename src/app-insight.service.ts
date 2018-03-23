@@ -217,6 +217,9 @@ export class AppInsightsService implements IAppInsights {
                 this.stopTrackPage(event.url);
               });
           }
+
+          this.queue = AppInsights.queue;
+          this.context = AppInsights.context;
         } catch (ex) {
           console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
         }
