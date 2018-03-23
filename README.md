@@ -1,8 +1,8 @@
-# Microsoft Azure Application Insights Angular v2+ implementation - by [DevHelp.Online](http://www.DevHelp.Online)
+# Angular 5+ and Microsoft Azure Application Insights implementation - by [DevHelp.Online](http://www.DevHelp.Online)
 
-> Connect your Angular 2+ client-side to Microsofts Application Insights with this easy-to-use Module.
+> Connect your Angular 5+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
-## Installation:
+## Installation
 
 Install & save the library to your package.json:
 
@@ -26,7 +26,7 @@ import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-a
   imports: [
     // ... your imports
 
-    // Add the Module to your imports 
+    // Add the Module to your imports
     ApplicationInsightsModule.forRoot({
       instrumentationKey: 'Your-Application-Insights-instrumentationKey'
     })
@@ -58,7 +58,7 @@ constructor(
 
 ```
 
-## Usage:
+## Usage
 
 Through out your application you can now use the AppInsightsService class to fire off AppInsights functionality.
 
@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
 }
 ```
 
-## API:
+## API
 
 You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
 
@@ -124,7 +124,7 @@ AppInsightsService.setAuthenticatedUserContext()
 AppInsightsService.clearAuthenticatedUserContext()
 ```
 
-## If using SystemJS:
+## If using SystemJS
 
 Modify systemjs.config.js...
 
@@ -145,20 +145,20 @@ and in System.Config.packages, add:
 
 ---
 
-# Want to Contribute?
+# Want to Contribute
 
 ## ng-Application-Insights Development
 
 To generate all `*.js`, `*.js.map` and `*.d.ts` files:
 
 ```bash
-$ npm run build
+npm run build
 ```
 
 To lint all `*.ts` files:
 
 ```bash
-$ npm run lint
+npm run lint
 ```
 
 ## License

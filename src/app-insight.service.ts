@@ -40,10 +40,15 @@ export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig 
 
 @Injectable()
 export class AppInsightsService implements IAppInsights {
+
   context: Microsoft.ApplicationInsights.ITelemetryContext;
   queue: Array<() => void>;
   config: AppInsightsConfig;
-  constructor( @Optional() _config: AppInsightsConfig, public router: Router) {
+
+  constructor(
+    @Optional() _config: AppInsightsConfig,
+    public router: Router
+  ) {
     this.config = _config;
   }
 
