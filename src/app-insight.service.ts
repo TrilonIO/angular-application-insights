@@ -178,9 +178,20 @@ export class AppInsightsService implements IAppInsights {
   // setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string)
   // Set the authenticated user id and the account id in this session. Use this when you have identified a specific
   // signed-in user. Parameters must not contain spaces or ,;=|
-  setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string) {
+     /**
+         * Sets the authenticated user id and the account id.
+         * User auth id and account id should be of type string. They should not contain commas, semi-colons, equal signs, spaces, or vertical-bars.
+         * 
+         * By default the method will only set the authUserID and accountId for all events in this page view. To add them to all events within
+         * the whole session, you should either call this method on every page view or set `storeInCookie = true`. 
+         *   
+         * @param authenticatedUserId {string} - The authenticated user id. A unique and persistent string that represents each authenticated user in the service.
+         * @param accountId {string} - An optional string to represent the account associated with the authenticated user.
+         * @param storeInCookie {boolean} - AuthenticateUserID will be stored in a cookie and added to all events within this session. 
+         */               
+  setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string, storeInCookie:boolean = false) {
     try {
-      AppInsights.setAuthenticatedUserContext(authenticatedUserId, accountId);
+      AppInsights.setAuthenticatedUserContext(authenticatedUserId, accountId, storeInCookie);
     } catch (ex) {
       console.warn('Angular application insights Error [setAuthenticatedUserContext]: ', ex);
     }
