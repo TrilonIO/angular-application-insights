@@ -1,7 +1,7 @@
 import { Injectable, Optional } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { AppInsights } from 'applicationinsights-js';
-import { filter } from 'rxjs/operators/filter';
+import { filter } from 'rxjs/operators';
 
 import IAppInsights = Microsoft.ApplicationInsights.IAppInsights;
 

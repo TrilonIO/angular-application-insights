@@ -1,6 +1,6 @@
-# Angular 5+ and Microsoft Azure Application Insights implementation - by [DevHelp.Online](http://www.DevHelp.Online)
+# Angular 6+ and Microsoft Azure Application Insights implementation - by [DevHelp.Online](http://www.DevHelp.Online)
 
-> Connect your Angular 5+ client-side to Microsofts Application Insights with this easy-to-use Module.
+> Connect your Angular 6+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
 ## Installation
 
@@ -9,6 +9,8 @@ Install & save the library to your package.json:
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
 ```
+
+> Angular 6.x with Rxjs 6.1+ use latest (5.x)
 
 > Angular 5.x with Rxjs 5.5+ (pipeable operators) use latest (4.x)
 
