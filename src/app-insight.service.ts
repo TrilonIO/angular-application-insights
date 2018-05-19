@@ -140,11 +140,11 @@ export class AppInsightsService implements IAppInsights {
   }
 
   // https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#tracktrace
-  // trackTrace(message: string, properties?: {[string]:string}, measurements?: {[string]:number})
+  // trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
   // Log a diagnostic event such as entering or leaving a method.
-  trackTrace(message: string, properties?: { [name: string]: string }) {
+  trackTrace(message: string, properties?: { [name: string]: string }, severityLevel?: AI.SeverityLevel) {
     try {
-      AppInsights.trackTrace(message, properties);
+      AppInsights.trackTrace(message, properties, severityLevel);
     } catch (ex) {
       console.warn('Angular application insights Error [trackTrace]: ', ex);
     }
