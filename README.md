@@ -126,25 +126,6 @@ AppInsightsService.setAuthenticatedUserContext()
 AppInsightsService.clearAuthenticatedUserContext()
 ```
 
-## If using SystemJS
-
-Modify systemjs.config.js...
-
-In System.Config.map, add:
-
-```typescript
-      'applicationinsights-js': 'npm:applicationinsights-js/JavaScript/JavaScriptSDK.Module/AppInsightsModule.js',
-      '@markpieszak/ng-application-insights': 'npm:@markpieszak/ng-application-insights/dist/index.js'
-```
-
-and in System.Config.packages, add:
-
-```typescript
-      '.': {
-         defaultExtension: 'js'
-      }
-```
-
 ---
 
 # Want to Contribute
