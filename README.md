@@ -128,7 +128,7 @@ AppInsightsService.clearAuthenticatedUserContext()
 
 ---
 
-# Want to Contribute
+# How to Contribute?
 
 ## ng-Application-Insights Development
 
