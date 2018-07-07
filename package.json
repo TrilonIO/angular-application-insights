@@ -1,6 +1,6 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
     "clean": "rimraf ./dist",
@@ -22,7 +22,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "applicationinsights-js": "^1.0.15",
+    "applicationinsights-js": "^1.0.18",
     "@types/applicationinsights-js": "^1.0.5"
   },
   "peerDependencies": {
