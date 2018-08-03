@@ -1,5 +1,5 @@
 import { Injectable, Optional } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { AppInsights } from 'applicationinsights-js';
 import { filter } from 'rxjs/operators';
 
@@ -227,7 +227,11 @@ export class AppInsightsService implements IAppInsights {
               });
 
             this.router.events.pipe(
-              filter(event => event instanceof NavigationEnd)
+              filter(event => (
+                event instanceof NavigationEnd ||
+                event instanceof NavigationCancel ||
+                event instanceof NavigationError
+              ))
             )
               .subscribe((event: NavigationEnd) => {
                 this.stopTrackPage(event.url);
