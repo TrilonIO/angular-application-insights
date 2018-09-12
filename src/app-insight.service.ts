@@ -1,4 +1,4 @@
-import { Injectable, Optional } from '@angular/core';
+import { Injectable, Optional, Injector } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { AppInsights } from 'applicationinsights-js';
 import { filter } from 'rxjs/operators';
@@ -47,7 +47,7 @@ export class AppInsightsService implements IAppInsights {
 
   constructor(
     @Optional() _config: AppInsightsConfig,
-    public router: Router
+    private _injector: Injector
   ) {
     this.config = _config;
   }
@@ -251,6 +251,10 @@ export class AppInsightsService implements IAppInsights {
     } else {
       console.warn('You need forRoot on ApplicationInsightsModule, with or instrumentationKeySetlater or instrumentationKey set at least');
     }
+  }
+
+  private get router() {
+    return this._injector.get(Router);
   }
 }
 
