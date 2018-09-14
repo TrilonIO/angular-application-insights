@@ -36,6 +36,11 @@ export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig 
   url?: string;
   isStorageUseDisabled?: boolean;
   overrideTrackPageMetrics?: boolean;
+  appId?: string;
+  correlationHeaderExcludedDomains?: string[];
+  enableCorsCorrelation?: boolean;
+  isBeaconApiDisabled?: boolean;
+  isBrowserLinkTrackingEnabled?: boolean;
 }
 
 @Injectable()
