@@ -4,6 +4,7 @@
   "scripts": {
     "lint": "tslint -p tsconfig.json",
     "clean": "rimraf ./dist",
+    "clean:install": "rimraf ./dist ./package-lock.json && npm i",
     "build": "npm run clean && npm run tsc && ngc",
     "tsc": "tsc"
   },
@@ -22,7 +23,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "applicationinsights-js": "^1.0.19-beta.1"
+    "applicationinsights-js": "^1.0.20"
   },
   "peerDependencies": {
     "@angular/router": "^6.0.0",
@@ -36,7 +37,7 @@
     "@angular/core": "^6.0.0",
     "@angular/platform-browser": "^6.0.0",
     "@angular/router": "^6.0.0",
-    "@types/applicationinsights-js": "^1.0.5",
+    "@types/applicationinsights-js": "^1.0.7",
     "codelyzer": "^3.1.2",
     "rimraf": "^2.5.4",
     "rxjs": "^6.1.0",

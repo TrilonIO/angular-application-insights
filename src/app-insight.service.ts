@@ -27,20 +27,20 @@ export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig 
   maxAjaxCallsPerView?: number;
   disableDataLossAnalysis?: boolean;
   disableCorrelationHeaders?: boolean;
+  correlationHeaderExcludedDomains?: string[];
   disableFlushOnBeforeUnload?: boolean;
   enableSessionStorageBuffer?: boolean;
   isCookieUseDisabled?: boolean;
   cookieDomain?: string;
   isRetryDisabled?: boolean;
-  isPerfAnalyzerEnabled?: boolean;
   url?: string;
   isStorageUseDisabled?: boolean;
-  overrideTrackPageMetrics?: boolean;
-  appId?: string;
-  correlationHeaderExcludedDomains?: string[];
-  enableCorsCorrelation?: boolean;
   isBeaconApiDisabled?: boolean;
+  sdkExtension?: string;
   isBrowserLinkTrackingEnabled?: boolean;
+  appId?: string;
+  enableCorsCorrelation?: boolean;
+  overrideTrackPageMetrics?: boolean;
 }
 
 @Injectable()
@@ -184,16 +184,16 @@ export class AppInsightsService implements IAppInsights {
   // Set the authenticated user id and the account id in this session. Use this when you have identified a specific
   // signed-in user. Parameters must not contain spaces or ,;=|
      /**
-         * Sets the authenticated user id and the account id.
-         * User auth id and account id should be of type string. They should not contain commas, semi-colons, equal signs, spaces, or vertical-bars.
-         * 
-         * By default the method will only set the authUserID and accountId for all events in this page view. To add them to all events within
-         * the whole session, you should either call this method on every page view or set `storeInCookie = true`. 
-         *   
-         * @param authenticatedUserId {string} - The authenticated user id. A unique and persistent string that represents each authenticated user in the service.
-         * @param accountId {string} - An optional string to represent the account associated with the authenticated user.
-         * @param storeInCookie {boolean} - AuthenticateUserID will be stored in a cookie and added to all events within this session. 
-         */               
+     * Sets the authenticated user id and the account id.
+     * User auth id and account id should be of type string. They should not contain commas, semi-colons, equal signs, spaces, or vertical-bars.
+     * 
+     * By default the method will only set the authUserID and accountId for all events in this page view. To add them to all events within
+     * the whole session, you should either call this method on every page view or set `storeInCookie = true`. 
+     *
+     * @param authenticatedUserId {string} - The authenticated user id. A unique and persistent string that represents each authenticated user in the service.
+     * @param accountId {string} - An optional string to represent the account associated with the authenticated user.
+     * @param storeInCookie {boolean} - AuthenticateUserID will be stored in a cookie and added to all events within this session. 
+     */
   setAuthenticatedUserContext(authenticatedUserId: string, accountId?: string, storeInCookie:boolean = false) {
     try {
       AppInsights.setAuthenticatedUserContext(authenticatedUserId, accountId, storeInCookie);
