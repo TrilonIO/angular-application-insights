@@ -10,11 +10,11 @@ Install & save the library to your package.json:
 $ npm i -S @markpieszak/ng-application-insights
 ```
 
-> Angular 6.x with Rxjs 6.1+ use latest (5.x)
+> Latest version v5.x - for Angular 6.x with Rxjs 6.1+
 
-> Angular 5.x with Rxjs 5.5+ (pipeable operators) use latest (4.x)
+> 4.x - for Angular 5.x with Rxjs 5.5+ (pipeable operators)
 
-> Angular 5.x (with older rxjs < 5.5) use versions 3.x
+> 3.x - for Angular 5.x (with older rxjs < 5.5)
 
 ---
 
