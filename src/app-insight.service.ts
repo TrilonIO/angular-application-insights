@@ -46,8 +46,12 @@ export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig 
 @Injectable()
 export class AppInsightsService implements IAppInsights {
 
-  context: Microsoft.ApplicationInsights.ITelemetryContext;
-  queue: Array<() => void>;
+  get context(): Microsoft.ApplicationInsights.ITelemetryContext {
+    return AppInsights.context;
+  }
+  get queue(): Array<() => void> {
+    return AppInsights.queue
+  }
   config: AppInsightsConfig;
 
   constructor(
@@ -242,9 +246,6 @@ export class AppInsightsService implements IAppInsights {
                 this.stopTrackPage(event.url);
               });
           }
-
-          this.queue = AppInsights.queue;
-          this.context = AppInsights.context;
         } catch (ex) {
           console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
         }
