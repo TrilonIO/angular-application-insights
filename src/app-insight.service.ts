@@ -6,7 +6,7 @@ import { filter } from 'rxjs/operators';
 import IAppInsights = Microsoft.ApplicationInsights.IAppInsights;
 
 export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig {
-  instrumentationKeySetlater?: boolean;
+  instrumentationKeySetLater?: boolean;
   instrumentationKey?: string;
   endpointUrl?: string;
   emitLineDelimitedJson?: boolean;
@@ -249,12 +249,12 @@ export class AppInsightsService implements IAppInsights {
           console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
         }
       } else {
-        if (!this.config.instrumentationKeySetlater) { // there is no this.config.instrumentationKey AND no this.config.instrumentationKeySetlater => Add log.
+        if (!this.config.instrumentationKeySetLater) { // there is no this.config.instrumentationKey AND no this.config.instrumentationKeySetLater => Add log.
           console.warn('An instrumentationKey value is required to initialize AppInsightsService');
         }
       }
     } else {
-      console.warn('You need forRoot on ApplicationInsightsModule, with or instrumentationKeySetlater or instrumentationKey set at least');
+      console.warn('You need forRoot on ApplicationInsightsModule, with or instrumentationKeySetLater or instrumentationKey set at least');
     }
   }
 
