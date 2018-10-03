@@ -1,6 +1,6 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "5.0.5",
+  "version": "6.0.0",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
     "clean": "rimraf ./dist",
@@ -13,8 +13,9 @@
     "url": "https://github.com/MarkPieszak/angular-application-insights"
   },
   "author": {
-    "name": "Mark Pieszak",
-    "email": "mpieszak84@gmail.com"
+    "name": "Mark Pieszak [DevHelp Online]",
+    "email": "Hello@DevHelp.Online",
+    "url": "http://DevHelp.Online"
   },
   "license": "MIT",
   "bugs": {
@@ -51,6 +52,8 @@
   "keywords": [
     "angular",
     "angular2",
+    "angular6",
+    "azure application insights",
     "ms application insights",
     "application insights",
     "angular application insights",
