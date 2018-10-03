@@ -7,6 +7,8 @@ import IAppInsights = Microsoft.ApplicationInsights.IAppInsights;
 
 export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig {
   instrumentationKeySetLater?: boolean;
+  // Will be deprecated in next major version
+  instrumentationKeySetlater?: boolean;
   instrumentationKey?: string;
   endpointUrl?: string;
   emitLineDelimitedJson?: boolean;
@@ -223,6 +225,17 @@ export class AppInsightsService implements IAppInsights {
 
   public init(): void {
     if (this.config) {
+
+      // Deprecation Warning(s)
+      if (this.config.instrumentationKeySetlater) {
+        console.warn(
+          `\n\n
+          Warning: [instrumentationKeySetlater] will soon be deprecated.\n
+          Use .instrumentationKeySetLater (capital "L" in "L"ater) instead
+          to prevent any possible errors in the future!
+          \n\n`);
+      }
+
       if (this.config.instrumentationKey) {
         try {
           AppInsights.downloadAndSetup(this.config);
@@ -250,7 +263,8 @@ export class AppInsightsService implements IAppInsights {
           console.warn('Angular application insights Error [downloadAndSetup]: ', ex);
         }
       } else {
-        if (!this.config.instrumentationKeySetLater) { // there is no this.config.instrumentationKey AND no this.config.instrumentationKeySetLater => Add log.
+        if (!this.config.instrumentationKeySetLater || !this.config.instrumentationKeySetlater) {
+          // there is no this.config.instrumentationKey AND no this.config.instrumentationKeySetLater => Add log.
           console.warn('An instrumentationKey value is required to initialize AppInsightsService');
         }
       }
