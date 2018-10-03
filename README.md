@@ -42,9 +42,9 @@ export class YourRootModule { }
 ### What if you don't know your instrumentationKey right away?
 
 ```typescript
-// Use instrumentationKeySetlater
+// Use instrumentationKeySetLater
 ApplicationInsightsModule.forRoot({
-  instrumentationKeySetlater: true // <--
+  instrumentationKeySetLater: true // <--
 })
 
 // Then later in your Application somewhere
