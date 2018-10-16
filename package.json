@@ -1,10 +1,10 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
     "clean": "rimraf ./dist",
-    "clean:install": "rimraf ./dist ./package-lock.json && npm i",
+    "clean.install": "rimraf ./dist ./package-lock.json && npm i",
     "build": "npm run clean && npm run tsc && ngc",
     "tsc": "tsc"
   },
