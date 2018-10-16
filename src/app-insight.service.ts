@@ -240,7 +240,8 @@ export class AppInsightsService implements IAppInsights {
         try {
           AppInsights.downloadAndSetup(this.config);
 
-          if (!this.config.overrideTrackPageMetrics) {
+          // Make sure "router" exists - in case of UIRouterModule where it does not
+          if (!this.config.overrideTrackPageMetrics && this.router) {
             this.router.events.pipe(
               filter(event => event instanceof NavigationStart)
             )
