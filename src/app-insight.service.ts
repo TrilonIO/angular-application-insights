@@ -275,7 +275,12 @@ export class AppInsightsService implements IAppInsights {
   }
 
   private get router() {
-    return this._injector.get(Router);
+    try {
+      return this._injector.get(Router);
+    } catch (ex) {
+      // @angular/router is not included - App must be utilizing UIRouter
+      return null;
+    }
   }
 }
 
