@@ -1,6 +1,9 @@
 # CHANGELOG
 
-## 6.0.2
+## 7.0.0
+- Upgrade project to latest Angular v7.x to prevent npm warnings
+
+## 6.0.3
 - Fix Router injector to handle UIRouter and not throw errors (or set up page tracking metrics) 
 
 ## 6.0.0

@@ -1,6 +1,6 @@
-# Angular 6+ and Microsoft Azure Application Insights implementation - by [DevHelp.Online](http://www.DevHelp.Online)
+# Angular 7+ and Microsoft Azure Application Insights implementation - by [DevHelp.Online](http://www.DevHelp.Online)
 
-> Connect your Angular 6+ client-side to Microsofts Application Insights with this easy-to-use Module.
+> Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
 ## Installation
 
@@ -10,7 +10,9 @@ Install & save the library to your package.json:
 $ npm i -S @markpieszak/ng-application-insights
 ```
 
-> Latest version v5.x - for Angular 6.x with Rxjs 6.1+
+> Latest version 7.x - for Angular 7.x
+
+> 6.x - for Angular 6.x with Rxjs 6.1+
 
 > 4.x - for Angular 5.x with Rxjs 5.5+ (pipeable operators)
 
