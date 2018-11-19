@@ -29,17 +29,18 @@
     "@types/applicationinsights-js": "^1.0.7"
   },
   "peerDependencies": {
+    "@angular/router": "^7.0.0",
     "rxjs": "^6.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
     "@angular/cli": "^7.0.6",
-    "@angular/common": "^7.0.4",
-    "@angular/compiler": "^7.0.4",
-    "@angular/compiler-cli": "^7.0.4",
-    "@angular/core": "^7.0.4",
-    "@angular/platform-browser": "^7.0.4",
-    "@angular/router": "^7.0.4",
+    "@angular/common": "^7.0.0",
+    "@angular/compiler": "^7.0.0",
+    "@angular/compiler-cli": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/platform-browser": "^7.0.0",
+    "@angular/router": "^7.0.0",
     "codelyzer": "^4.5.0",
     "rimraf": "^2.6.2",
     "rxjs": "^6.1.0",
