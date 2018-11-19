@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 6.0.2
+- Fix Router injector to handle UIRouter and not throw errors (or set up page tracking metrics) 
+
 ## 6.0.0
 - Deprecation warning added for `instrumentationKeySetlater` (will be removed in next major version(?))
 - Use `instrumentationKeySetLater` (capital "L") to match correct AppInsights Interface
