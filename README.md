@@ -150,7 +150,7 @@ npm run lint
 
 MIT © [Mark Pieszak | DevHelp Online](mailto:hello@devhelp.online)
 
-Twitter: [@MarkPieszak](https://twitter.com/MarkPieszak)
+Twitter: [![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
 
 ----
 
