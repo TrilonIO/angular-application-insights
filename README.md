@@ -156,7 +156,8 @@ Twitter: [![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.sv
 
 # DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
-Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! Twitter [![Twitter Follow](https://img.shields.io/twitter/follow/DevHelpOnline.svg?style=social)](https://twitter.com/DevHelpOnline)
+Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! 
+Twitter [@DevHelpOnline](http://www.twitter.com/DevHelpOnline)
 
 Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
 
