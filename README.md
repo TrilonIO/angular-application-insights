@@ -83,7 +83,7 @@ export class ShoppingCartComponent {
 
 ## Usage with Aspnetcore-Angular2-Universal repo or JavaScriptServices ( apps w/ Server-side rendering )
 
-> ie: https://github.com/MarkPieszak/aspnetcore-angular2-universal
+> ie: https://github.com/TrilonIO/aspnetcore-angular-universal
 
 First, make sure you are only importing the library & the server within the **browser-app.module** NgModule (do not share it within a common one, as the server isn't able to use this library during it's server-renders).
 
