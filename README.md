@@ -1,4 +1,4 @@
-# Angular 7+ and Microsoft Azure Application Insights implementation - by [DevHelp.Online](http://www.DevHelp.Online)
+# Angular 7+ and Microsoft Azure Application Insights implementation - by [Trilon.io](https://Trilon.io)
 
 > Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
@@ -146,21 +146,28 @@ To lint all `*.ts` files:
 npm run lint
 ```
 
-## License
+----
 
-MIT © [Mark Pieszak | DevHelp Online](mailto:hello@devhelp.online)
+# License
 
-Twitter: [![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
+
+Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
 
 ----
 
 # DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
-Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! 
-Twitter [@DevHelpOnline](http://www.twitter.com/DevHelpOnline)
+Check out **[Trilon.io](https://Trilon.io)** for more info! Twitter [@Trilon_io](http://www.twitter.com/Trilon_io)
 
-Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+Contact us at <hello@trilon.io>, and let's talk about your projects needs.
 
 <p align="center">
-    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/768119/images/4272479/Screen_Shot_2017-10-27_at_6.58.34_PM.png" alt="DevHelp.Online - Angular ASPNET JavaScript Consulting Development and Training">
+    <img src="https://trilon.io/meta/og-image.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
 </p>
+
+## Follow Trilon online:
+
+Twitter: [@Trilon_io](http://twitter.com/Trilon_io)
