@@ -1,6 +1,6 @@
 {
   "name": "@markpieszak/ng-application-insights",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
     "clean": "rimraf ./dist",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarkPieszak/angular-application-insights"
+    "url": "https://github.com/TrilonIO/angular-application-insights"
   },
   "author": {
     "name": "Mark Pieszak | Trilon Consulting",
@@ -20,13 +20,13 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MarkPieszak/angular-application-insights/issues"
+    "url": "https://github.com/TrilonIO/angular-application-insights/issues"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
     "applicationinsights-js": "^1.0.20",
-    "@types/applicationinsights-js": "^1.0.7"
+    "@types/applicationinsights-js": "^1.0.9"
   },
   "peerDependencies": {
     "@angular/router": "^7.0.0",
@@ -49,18 +49,21 @@
     "zone.js": "^0.8.26"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=10.0.0"
   },
   "keywords": [
     "angular",
     "angular2",
-    "angular6",
+    "angular7",
+    "angular8",
     "azure application insights",
     "ms application insights",
     "application insights",
     "angular application insights",
     "microsoft application insights",
     "ms app insights",
-    "aspnet core app insights"
+    "aspnet core app insights",
+    "trilon",
+    "trilon.io"
   ]
 }
