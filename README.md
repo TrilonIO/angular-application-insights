@@ -166,7 +166,7 @@ Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
 
 ----
 
-# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
+# Trilon - JavaScript, ASP.NET, Node, NestJS - Consulting | Training | Development
 
 Check out **[Trilon.io](https://Trilon.io)** for more info! Twitter [@Trilon_io](http://www.twitter.com/Trilon_io)
 
