@@ -1,8 +1,6 @@
 # Angular 7+ and Microsoft Azure Application Insights implementation
 
-### Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
-
----
+## Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
 ### Made with :heart: by [Trilon.io](https://trilon.io)
 
@@ -11,8 +9,6 @@
         <img width="200" height="auto" src="https://trilon.io/meta/og-image.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
-
----
 
 ## Installation
 
