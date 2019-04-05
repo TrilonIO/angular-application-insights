@@ -2,6 +2,8 @@
 
 ## Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
+[![npm version](https://badge.fury.io/js/%40markpieszak%2Fng-application-insights.svg)](https://badge.fury.io/js/%40markpieszak%2Fng-application-insights)
+
 ### Made with :heart: by [Trilon.io](https://trilon.io)
 
 <p>
