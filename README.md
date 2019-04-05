@@ -8,7 +8,7 @@
 
 <p>
   <a href="https://trilon.io" target="_blank">
-        <img width="200" height="auto" src="https://trilon.io/meta/og-image.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+        <img width="200" height="auto" src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
 
@@ -176,7 +176,7 @@ Contact us at <hello@trilon.io>, and let's talk about your projects needs.
 
 <p align="center">
   <a href="https://trilon.io" target="_blank">
-        <img src="https://trilon.io/meta/og-image.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+        <img src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
 
