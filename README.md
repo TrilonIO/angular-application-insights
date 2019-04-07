@@ -2,9 +2,12 @@
 
 ## Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
-[![npm version](https://badge.fury.io/js/%40markpieszak%2Fng-application-insights.svg)](https://badge.fury.io/js/%40markpieszak%2Fng-application-insights)
-[![NPM Downloads](https://img.shields.io/npm/dt/@markpieszak/ng-application-insights.svg?style=flat-square)](https://www.npmjs.com/@markpieszak/ng-application-insights)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
+[![npm](https://img.shields.io/npm/v/@markpieszak/ng-application-insights.svg?label=npm%20version&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
+[![NPM Downloads](https://img.shields.io/npm/dt/@markpieszak/ng-application-insights.svg?style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](/LICENSE) 
+
+<a href="https://www.nuget.org/packages/aspnetcore-vuejs/" target="_blank"><img alt="Nuget" src="https://img.shields.io/nuget/v/aspnetcore-vuejs.svg?style=for-the-badge"></a>
+<a href="https://www.nuget.org/packages/aspnetcore-vuejs/" target="_blank"><img alt="Nuget" src="https://img.shields.io/nuget/dt/aspnetcore-vuejs.svg?label=Nuget%20Downloads&style=for-the-badge"></a>
 
 ---
 
