@@ -4,7 +4,7 @@
 
 [![npm](https://img.shields.io/npm/v/@markpieszak/ng-application-insights.svg?label=npm%20version&color=5b1096&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
 [![NPM Downloads](https://img.shields.io/npm/dt/@markpieszak/ng-application-insights.svg?color=b31ae7&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e91e63)](/LICENSE) 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e51384)](/LICENSE) 
 
 ---
 
