@@ -3,6 +3,10 @@
 ## Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
 
 [![npm version](https://badge.fury.io/js/%40markpieszak%2Fng-application-insights.svg)](https://badge.fury.io/js/%40markpieszak%2Fng-application-insights)
+[![NPM Downloads](https://img.shields.io/npm/dt/@markpieszak/ng-application-insights.svg?style=flat-square)](https://www.npmjs.com/@markpieszak/ng-application-insights)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
+
+---
 
 ### Made with :heart: by [Trilon.io](https://trilon.io)
 
@@ -157,10 +161,6 @@ npm run lint
 ```
 
 ----
-
-# License
-
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
 
 Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
 
