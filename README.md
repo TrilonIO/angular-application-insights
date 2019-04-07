@@ -8,13 +8,16 @@
 
 ---
 
-### Made with :heart: by [Trilon.io](https://trilon.io)
-
 <p>
   <a href="https://trilon.io" target="_blank">
-        <img width="400" height="auto" src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+        <img src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
+
+
+<h3 align="center"> Made with :heart: by <a href="https://trilon.io">Trilon.io</a></h3>
+
+---
 
 ## Installation
 
