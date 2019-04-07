@@ -6,9 +6,6 @@
 [![NPM Downloads](https://img.shields.io/npm/dt/@markpieszak/ng-application-insights.svg?style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](/LICENSE) 
 
-<a href="https://www.nuget.org/packages/aspnetcore-vuejs/" target="_blank"><img alt="Nuget" src="https://img.shields.io/nuget/v/aspnetcore-vuejs.svg?style=for-the-badge"></a>
-<a href="https://www.nuget.org/packages/aspnetcore-vuejs/" target="_blank"><img alt="Nuget" src="https://img.shields.io/nuget/dt/aspnetcore-vuejs.svg?label=Nuget%20Downloads&style=for-the-badge"></a>
-
 ---
 
 <p align="center">
