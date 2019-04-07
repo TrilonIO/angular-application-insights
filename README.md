@@ -165,6 +165,10 @@ npm run lint
 
 ----
 
+# License
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e51384)](/LICENSE) 
+
 Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
