@@ -27,17 +27,11 @@ Install & save the library to your package.json:
 $ npm i -S @markpieszak/ng-application-insights
 ```
 
-> Latest version 7.x - for Angular 7.x
-
-> 6.x - for Angular 6.x with Rxjs 6.1+
-
-> 4.x - for Angular 5.x with Rxjs 5.5+ (pipeable operators)
-
-> 3.x - for Angular 5.x (with older rxjs < 5.5)
-
 ---
 
-Then add the library to your Angular Root `AppModule`:
+### AppModule Setup
+
+Now add ApplicationInsightsModule to your Angular Root `AppModule`:
 
 ```typescript
 // Import the Application Insights module and the service provider
