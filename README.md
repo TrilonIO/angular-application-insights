@@ -1,6 +1,8 @@
-# Angular 7+ and Microsoft Azure Application Insights implementation
+# Angular Azure Application Insights implementation
 
-## Connect your Angular 7+ client-side to Microsofts Application Insights with this easy-to-use Module.
+## Connect your Angular client-side to Microsofts Application Insights with this easy-to-use Module.
+
+> Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
 
 [![npm](https://img.shields.io/npm/v/@markpieszak/ng-application-insights.svg?label=npm%20version&color=5b1096&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
 [![NPM Downloads](https://img.shields.io/npm/dt/@markpieszak/ng-application-insights.svg?color=b31ae7&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
