@@ -26,8 +26,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "applicationinsights-js": "^1.0.20",
-    "@types/applicationinsights-js": "^1.0.9"
+    "@microsoft/applicationinsights-web": "^2.0.0-rc4"
   },
   "peerDependencies": {
     "@angular/router": "^7.0.0",
