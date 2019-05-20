@@ -36,20 +36,20 @@ $ npm i -S @markpieszak/ng-application-insights
 Now add ApplicationInsightsModule to your Angular Root `AppModule`:
 
 ```typescript
-// Import the Application Insights module and the service provider
+// 1) Import the Application Insights module and the service provider
 import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-application-insights';
 
 @NgModule({
   imports: [
-    // ... your imports
-
-    // Add the Module to your imports
+    // 2) Add the Module to your imports
     ApplicationInsightsModule.forRoot({
       instrumentationKey: 'Your-Application-Insights-instrumentationKey'
     })
   ],
-  // ... providers / etc
-  providers: [ ..., AppInsightsService ],
+  providers: [ 
+     // 3) Add AppInsightsService to your providers list
+     AppInsightsService
+  ]
 })
 export class YourRootModule { }
 ```
