@@ -30,24 +30,23 @@
     "@types/applicationinsights-js": "^1.0.9"
   },
   "peerDependencies": {
-    "@angular/router": "^7.0.0",
     "rxjs": "^6.1.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.10.0",
-    "@angular/cli": "^7.0.6",
-    "@angular/common": "^7.0.0",
-    "@angular/compiler": "^7.0.0",
-    "@angular/compiler-cli": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@angular/platform-browser": "^7.0.0",
-    "@angular/router": "^7.0.0",
+    "@angular-devkit/build-angular": "~0.801.1",
+    "@angular/cli": "^8.1.1",
+    "@angular/common": "^8.1.1",
+    "@angular/compiler": "^8.1.1",
+    "@angular/compiler-cli": "^8.1.1",
+    "@angular/core": "^8.1.1",
+    "@angular/platform-browser": "^8.1.1",
+    "@angular/router": "^8.1.1",
     "codelyzer": "^4.5.0",
     "rimraf": "^2.6.2",
     "rxjs": "^6.1.0",
     "tslint": "^5.7.0",
-    "typescript": "3.1.6",
-    "zone.js": "^0.8.26"
+    "typescript": "3.4.5",
+    "zone.js": "^0.9.1"
   },
   "engines": {
     "node": ">=10.0.0"
