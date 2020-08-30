@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppInsightsConfig, AppInsightsService } from './src/app-insight.service';
 
-export * from './src/app-insight.service';
+export { SeverityLevel, AppInsightsConfig, AppInsightsService } from './src/app-insight.service';
 
 @NgModule({
   imports: [ CommonModule ],

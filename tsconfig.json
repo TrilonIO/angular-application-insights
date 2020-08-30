@@ -2,8 +2,10 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
+    "skipLibCheck": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "lib": ["es2015", "dom"],
     "sourceMap": true,
     "declaration": true,
@@ -24,6 +26,7 @@
     "dist"
   ],
   "angularCompilerOptions": {
+    "enableIvy": false,
     "skipTemplateCodegen": true
   }
 }
