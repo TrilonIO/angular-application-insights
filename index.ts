@@ -23,7 +23,7 @@ export class ApplicationInsightsModule {
     }
   }
 
-  static forRoot(config: AppInsightsConfig): ModuleWithProviders {
+  static forRoot(config: AppInsightsConfig): ModuleWithProviders<ApplicationInsightsModule> {
     return {
       ngModule: ApplicationInsightsModule,
       providers: [
