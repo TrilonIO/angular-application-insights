@@ -51,7 +51,21 @@ export class AppInsightsConfig implements Microsoft.ApplicationInsights.IConfig 
   isBrowserLinkTrackingEnabled?: boolean;
   appId?: string;
   enableCorsCorrelation?: boolean;
+  namePrefix?: string;
   overrideTrackPageMetrics?: boolean;
+  enableAutoRouteTracking?: boolean;
+  enableRequestHeaderTracking?: boolean;
+  enableResponseHeaderTracking?: boolean;
+  enableAjaxErrorStatusText?: boolean;
+  enableAjaxPerfTracking?: boolean;
+  maxAjaxPerfLookupAttempts?: number;
+  ajaxPerfLookupDelay?: number;
+  distributedTracingMode?: boolean;
+  enableUnhandledPromiseRejectionTracking?: boolean;
+  disableInstrumentaionKeyValidation?: boolean;
+  enablePerfMgr?: boolean;
+  perfEvtsSendAll?: boolean;
+  
 }
 
 @Injectable()
