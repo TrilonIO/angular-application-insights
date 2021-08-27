@@ -1,22 +1,21 @@
 # Angular Azure Application Insights implementation
 
-## Connect your Angular client-side to Microsofts Application Insights with this easy-to-use Module.
+## Connect your Angular client-side to Microsofts Application Insights with this easy-to-use Module
 
 > Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
 
 [![npm](https://img.shields.io/npm/v/@markpieszak/ng-application-insights.svg?label=npm%20version&color=5b1096&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
 [![Minzipped Size](https://img.shields.io/bundlephobia/minzip/@markpieszak/ng-application-insights?color=e51384&style=for-the-badge)](https://bundlephobia.com/result?p=@markpieszak/ng-application-insights)
 [![NPM Downloads](https://img.shields.io/npm/dw/@markpieszak/ng-application-insights.svg?color=b31ae7&style=for-the-badge)](https://www.npmjs.com/@markpieszak/ng-application-insights)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e51384)](/LICENSE) 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e51384)](/LICENSE)
 
 ---
 
 <p align="center">
   <a href="https://trilon.io" target="_blank">
-        <img width="500" height="auto" src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+    <img width="500" height="auto" src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
-
 
 <h3 align="center"> Made with :heart: by <a href="https://trilon.io">Trilon.io</a></h3>
 
@@ -28,6 +27,10 @@ Install & save the library to your package.json:
 
 ```bash
 $ npm i -S @markpieszak/ng-application-insights
+
+# yarn
+
+$ yarn add @markpieszak/ng-application-insights
 ```
 
 ---
@@ -97,7 +100,7 @@ export class ShoppingCartComponent {
 
 ## Usage with Aspnetcore-Angular2-Universal repo or JavaScriptServices ( apps w/ Server-side rendering )
 
-> ie: https://github.com/TrilonIO/aspnetcore-angular-universal
+> ie: <https://github.com/TrilonIO/aspnetcore-angular-universal>
 
 First, make sure you are only importing the library & the server within the **browser-app.module** NgModule (do not share it within a common one, as the server isn't able to use this library during it's server-renders).
 
@@ -106,25 +109,25 @@ Secondly, make sure you are calling the `injector` to get AppInsightsService dur
 ```typescript
 export class HomeComponent implements OnInit {
 
-    private AIService: AppInsightsService;
-    private isBrowser: boolean;
+  private AIService: AppInsightsService;
+  private isBrowser: boolean;
 
-    constructor(@Inject(PLATFORM_ID) private platformId, private injector: Injector) {
-        this.isBrowser = isPlatformBrowser(this.platformId);
-    }
+  constructor(@Inject(PLATFORM_ID) private platformId, private injector: Injector) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
-    ngOnInit() { // <-- 
-        if (this.isBrowser) { // <-- only run if isBrowser
-            this.AIService = <AppInsightsService>this.injector.get(AppInsightsService); // <-- using the Injector, get the Service
-            this.AIService.trackEvent('Testing', { 'user': 'me' });
-        } 
-    }
+  ngOnInit() { // <-- 
+    if (this.isBrowser) { // <-- only run if isBrowser
+      this.AIService = <AppInsightsService>this.injector.get(AppInsightsService); // <-- using the Injector, get the Service
+      this.AIService.trackEvent('Testing', { 'user': 'me' });
+    } 
+  }
 }
 ```
 
 ## API
 
-You can see a list of the API here: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights
+You can see a list of the API here: <https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#class-appinsights>
 
 ```typescript
 AppInsightsService.trackEvent()
@@ -164,9 +167,9 @@ npm run lint
 
 # License
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e51384)](/LICENSE) 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&color=e51384)](/LICENSE)
 
-Copyright (c) 2016-2020 [Mark Pieszak](https://twitter.com/MarkPieszak)
+Copyright (c) 2016-2021 [Mark Pieszak](https://twitter.com/MarkPieszak)
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
 
@@ -174,17 +177,16 @@ Copyright (c) 2016-2020 [Mark Pieszak](https://twitter.com/MarkPieszak)
 
 # Trilon - JavaScript, ASP.NET, Node, NestJS - Consulting | Training | Development
 
-Check out **[Trilon.io](https://Trilon.io)** for more info! 
+Check out **[Trilon.io](https://Trilon.io)** for more info!
 
 Contact us at <hello@trilon.io>, and let's talk about your projects needs.
 
 <p align="center">
   <a href="https://trilon.io" target="_blank">
-        <img src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+    <img src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
 
-## Follow Trilon online:
+## Follow Trilon online
 
 Twitter: [@Trilon_io](http://twitter.com/Trilon_io)
-

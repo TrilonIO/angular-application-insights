@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 9.0.0
+- Upgrade for Angular 11 + 12
+- 
 ## 7.0.0
 - Upgrade project to latest Angular v7.x to prevent npm warnings
 
